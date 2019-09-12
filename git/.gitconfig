@@ -1,0 +1,8 @@
+[http]
+	proxy = socks5://127.0.0.1:9050
+[user]
+	name = Naeem Baghi
+	email = naeembaghi1992@gmail.com
+[alias]
+	logline = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	prettylog = log --pretty=format:'%Cred%H%Creset %C(yellow)%ad%Creset %s %Cgreen%an%Creset'
