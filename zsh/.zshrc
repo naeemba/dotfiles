@@ -1,9 +1,6 @@
 # load zgen  -*- mode: sh; -*-
 
 # These lines needs to be before loading oh-my-zsh
-zstyle :omz:plugins:keychain options --quiet
-zstyle :omz:plugins:keychain agents gpg,ssh
-
 source "${HOME}/.zgen/zgen.zsh"
 
 # check if there's no init script
@@ -16,13 +13,11 @@ if ! zgen saved; then
     # plugins
     zgen oh-my-zsh plugins/git
     zgen oh-my-zsh plugins/tig
-    zgen oh-my-zsh plugins/virtualenvwrapper
     zgen oh-my-zsh plugins/systemd
     zgen oh-my-zsh plugins/fzf
     zgen oh-my-zsh plugins/gpg-agent
     zgen oh-my-zsh plugins/npm
     zgen oh-my-zsh plugins/npx
-    zgen oh-my-zsh plugins/keychain
     zgen oh-my-zsh plugins/pass
     zgen oh-my-zsh plugins/archlinux
     zgen oh-my-zsh plugins/vi-mode
@@ -124,6 +119,7 @@ alias j='fasd_cd -d'
 alias jj='fasd_cd -d -i'
 alias tags="grep -orh '@.*' ~/Notes/journal | sort | uniq -c"
 alias ledger="ledger --pedantic --explicit --strict"
+alias whc="tig HEAD..origin/master"
 
 export PATH=$PATH:$HOME/.cabal/bin
 export PATH=$HOME/.bin:$PATH
@@ -132,7 +128,6 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools
 export PATH=$PATH:$JAVA_HOME/bin
 export PATH=$PYENV_ROOT/bin:$PATH
 
-export WORKON_HOME=~/.virtualenvs
-# source /usr/bin/virtualenvwrapper_lazy.sh
+eval "$(direnv hook zsh)"
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
