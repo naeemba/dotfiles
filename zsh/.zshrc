@@ -120,6 +120,9 @@ alias jj='fasd_cd -d -i'
 alias tags="grep -orh '@.*' ~/Notes/journal | sort | uniq -c"
 alias ledger="ledger --pedantic --explicit --strict"
 alias whc="tig HEAD..origin/master"
+alias tt="npm run test:enlite"
+alias fs="flow status"
+alias es="eslint"
 
 export PATH=$PATH:$HOME/.cabal/bin
 export PATH=$HOME/.bin:$PATH
