@@ -1,5 +1,8 @@
 # load zgen  -*- mode: sh; -*-
 
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
 # These lines needs to be before loading oh-my-zsh
 source "${HOME}/.zgen/zgen.zsh"
 
@@ -91,9 +94,9 @@ bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 
 export JAVA_HOME=/usr/lib/jvm/default
-export DEFAULT_USER="samim"
+export DEFAULT_USER="sharp"
 export GOPATH="$HOME/.go"
-export ANDROID_HOME="/home/samim/Android/Sdk"
+export ANDROID_HOME="/home/sharp/Android/Sdk"
 export EDITOR=nvr
 export ANDROID_EMULATOR_USE_SYSTEM_LIBS=1
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=242"
@@ -103,8 +106,8 @@ export LEDGER_PRICE_DB="$HOME/Notes/accounting/price-db.ledger"
 export TOMBS="$HOME/tombs"
 export PASSWORD_STORE_TOMB_FILE="$TOMBS/pass.tomb" # for pass-tomb
 export PASSWORD_STORE_TOMB_KEY="$TOMBS/pass.tomb.key" # for pass-tomb
-export BORG_CONFIG_DIR="/home/samim/borg"
-export BORG_CACHE_DIR="/home/samim/borg/cache"
+export BORG_CONFIG_DIR="/home/sharp/borg"
+export BORG_CACHE_DIR="/home/sharp/borg/cache"
 export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --preview '[[ \$(file --mime {}) =~ binary ]] && echo {} is a binary file || (highlight -O ansi -l {} || cat {}) 2> /dev/null | head -500' "
 alias e=$EDITOR
 alias vim=nvim
@@ -112,7 +115,6 @@ alias down="aria2c --conf-path=${HOME}/.aria2/down.conf"
 alias bdown="aria2c --conf-path=${HOME}/.aria2/bersam.conf"
 alias tdown="aria2c --all-proxy=http://127.0.0.1:7777 --conf-path=${HOME}/.aria2/down.conf"
 alias rdown="aria2c --enable-rpc --rpc-listen-port=6800 --rpc-listen-all=true --conf-path=${HOME}/.aria2/down.conf"
-alias fly='sshuttle  --dns -r 52565751e0b8cd99d30001ba@private-psamim.rhcloud.com 0/0'
 alias o='xdg-open'
 alias xclip='xclip -selection clipboard'
 alias j='fasd_cd -d'
@@ -121,8 +123,11 @@ alias tags="grep -orh '@.*' ~/Notes/journal | sort | uniq -c"
 alias ledger="ledger --pedantic --explicit --strict"
 alias whc="tig HEAD..origin/master"
 alias tt="npm run test:enlite"
+alias se="npm run start:enlite"
+alias sd="npm run start:delite"
 alias fs="flow status"
 alias es="eslint"
+alias tr="systemctl restart tor"
 
 export PATH=$PATH:$HOME/.cabal/bin
 export PATH=$HOME/.bin:$PATH
