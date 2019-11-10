@@ -1,13 +1,12 @@
 call plug#begin('~/.vim/plugged')
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
-Plug 'w0rp/ale'
+" Plug 'w0rp/ale'
 Plug 'TaDaa/vimade'
 Plug 'mcchrish/nnn.vim'
 Plug 'skywind3000/asyncrun.vim'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
-Plug 'ervandew/supertab'
 Plug 'tpope/vim-commentary'
 Plug 'airblade/vim-gitgutter'
 Plug 'Raimondi/delimitMate'
@@ -42,6 +41,7 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'leafgarland/typescript-vim'
+Plug 'norcalli/nvim-colorizer.lua'
 call plug#end()
 
 " CtrlpZ, fasd intergration
@@ -211,20 +211,6 @@ noremap <Leader>v :<C-u>vsplit<CR>
 " nnoremap <A-l> <C-W><C-L>
 " nnoremap <A-h> <C-W><C-H>
 
-" Ale
-nmap <silent> <leader>en :ALENext<cr>
-nmap <silent> <leader>ep :ALEPrevious<cr>
-nnoremap <C-q> :ALEHover<CR>
-let g:ale_sign_error = '●' " Less aggressive than the default '>>'
-let g:ale_sign_warning = '.'
-let g:ale_fixers = ['eslint']
-let g:ale_fix_on_save = 1
-" let g:ale_completion_enabled = 1
-" set completeopt=menu,menuone,preview,noselect,noinsert "" see help *ale-completion-completopt-bug*
-let b:ale_set_balloons = 1
-" let g:ale_open_list = 'on_save'
-let g:ale_sign_column_always = 1
-
 " supertab
 let g:SuperTabDefaultCompletionType = "<c-n>"
 let g:SuperTabContextDefaultCompletionType = "<c-n>"
@@ -322,3 +308,5 @@ let g:airline#extensions#tabline#ignore_bufadd_pat =
 let g:airline_section_error = '%{airline#util#wrap(airline#extensions#coc#get_error(),0)}'
 let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_warning(),0)}'
 set noshowmode
+
+lua require'colorizer'.setup()
