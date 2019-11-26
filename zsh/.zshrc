@@ -128,6 +128,7 @@ alias sd="npm run start:delite"
 alias fs="flow status"
 alias es="eslint"
 alias tr="systemctl restart tor"
+alias lg="journalctl -exfu"
 
 export PATH=$PATH:$HOME/.cabal/bin
 export PATH=$HOME/.bin:$PATH
