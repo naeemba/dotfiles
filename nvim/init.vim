@@ -1,7 +1,6 @@
 call plug#begin('~/.vim/plugged')
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
-" Plug 'w0rp/ale'
 Plug 'TaDaa/vimade'
 Plug 'mcchrish/nnn.vim'
 Plug 'skywind3000/asyncrun.vim'
@@ -42,6 +41,7 @@ Plug 'junegunn/limelight.vim'
 Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'leafgarland/typescript-vim'
 Plug 'norcalli/nvim-colorizer.lua'
+Plug 'lambdalisue/suda.vim'
 call plug#end()
 
 " CtrlpZ, fasd intergration
@@ -69,24 +69,6 @@ function! Z(...)
   endif
 endfunction
 
-
-" coc
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-function! s:show_documentation()
-  if &filetype == 'vim'
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
-
-imap <C-l> <Plug>(coc-snippets-expand)
-
 " Colors
 set number relativenumber
 syntax enable
@@ -103,7 +85,7 @@ augroup TerminalStuff
     au!
     autocmd TermOpen * nnoremap <buffer> <A-q> <Esc>:bdelete!<CR>
     autocmd BufWinEnter,WinEnter * if &buftype == 'terminal' | silent! normal i | endif
-    autocmd TermOpen * setlocal nonumber norelativenumber noshowcmd noruler
+    autocmd TermOpen * setlocal nonumber norelativenumber noshowcmd noruler nospell
     autocmd TermOpen * echo ""
 augroup END
 
@@ -111,7 +93,7 @@ augroup END
 " Other
 filetype plugin indent on
 set autowrite
-setlocal spell spelllang=en_us
+set spell
 
 if has('nvim')
   let $VISUAL = 'nvr -cc split --remote-wait'
@@ -174,19 +156,19 @@ nmap <C-p> :GFiles<CR>
 nmap <leader>/ :Rg<CR>
 "   :Ag  - Start fzf with hidden preview window that can be enabled with "?" key
 "   :Ag! - Start fzf in fullscreen and display the preview window above
-command! -bang -nargs=* Ag
-  \ call fzf#vim#ag(<q-args>,
-  \                 <bang>0 ? fzf#vim#with_preview('up:60%')
-  \                         : fzf#vim#with_preview('right:50%:hidden', '?'),
-  \                 <bang>0)
 
-" Similarly, we can apply it to fzf#vim#grep. To use ripgrep instead of ag:
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
   \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
   \   <bang>0 ? fzf#vim#with_preview('up:60%')
   \           : fzf#vim#with_preview('right:50%:hidden', '?'),
   \   <bang>0)
+
+command! -bang -nargs=* Ag
+  \ call fzf#vim#ag(<q-args>,
+  \                 <bang>0 ? fzf#vim#with_preview('up:60%')
+  \                         : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \                 <bang>0)
 
 " Likewise, Files command with preview window
 command! -bang -nargs=? -complete=dir Files
@@ -202,18 +184,12 @@ autocmd  FileType fzf set laststatus=0 noshowmode noruler
 
 " File manager
 " nnoremap <leader>d :Ranger<CR>
-nnoremap <leader>d :NERDTreeToggle<CR>
+nnoremap <leader>d :NERDTreeFind<CR>
 " let g:ranger_replace_netrw = 1
 
 " Split
 noremap <Leader>h :<C-u>split<CR>
 noremap <Leader>v :<C-u>vsplit<CR>
-" nnoremap <A-l> <C-W><C-L>
-" nnoremap <A-h> <C-W><C-H>
-
-" supertab
-let g:SuperTabDefaultCompletionType = "<c-n>"
-let g:SuperTabContextDefaultCompletionType = "<c-n>"
 
 " vim-javascript
 let g:jsx_ext_required = 0
@@ -301,7 +277,6 @@ vmap > >gv
 let g:airline_section_x=''
 let g:airline_section_y=''
 " let g:airline_section_warning=''
-let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#ignore_bufadd_pat =
   \ 'gundo|undotree|vimfiler|tagbar|nerd_tree|startify|!'
@@ -310,3 +285,42 @@ let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_
 set noshowmode
 
 lua require'colorizer'.setup()
+
+	" coc		
+"		
+let g:coc_global_extensions = ['coc-snippets', 'coc-yank', 'coc-flow', 'coc-eslint', 'coc-word'		
+      \, 'coc-sh']		
+" Use tab for trigger completion with characters ahead and navigate.		
+" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.		
+inoremap <silent><expr> <TAB>		
+      \ pumvisible() ? "\<C-n>" :		
+      \ <SID>check_back_space() ? "\<TAB>" :		
+      \ coc#refresh()		
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"		
+function! s:check_back_space() abort		
+  let col = col('.') - 1		
+  return !col || getline('.')[col - 1]  =~# '\s'		
+endfunction		
+" You will have bad experience for diagnostic messages when it's default 4000.		
+set updatetime=300		
+" don't give |ins-completion-menu| messages.		
+set shortmess+=c		
+" always show signcolumns		
+set signcolumn=yes		
+function! s:show_documentation()		
+  if &filetype == 'vim'		
+    execute 'h '.expand('<cword>')		
+  else		
+    call CocAction('doHover')		
+  endif		
+endfunction		
+nnoremap <silent> K :call <SID>show_documentation()<CR>		
+nmap <silent> gd <Plug>(coc-definition)		
+nmap <silent> gy <Plug>(coc-type-definition)		
+nmap <silent> gi <Plug>(coc-implementation)		
+nmap <silent> gr <Plug>(coc-references)		
+imap <C-l> <Plug>(coc-snippets-expand)		
+nmap <silent> <leader>ep <Plug>(coc-diagnostic-prev)		
+nmap <silent> <leader>en <Plug>(coc-diagnostic-next)		
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}		
+hi illuminatedWord cterm=bold ctermfg=121 gui=bold guifg=#2aa198
