@@ -4,15 +4,9 @@
     "javascript.jsx": ["javascript"],
     "javascriptreact": ["javascript"]
   },
-  "eslint": {
-    "autoFixOnSave": "true",
-    "options": {
-      "configFile":".eslintrc"
-    }
-  },
-  "diagnostic": {
-    "errorSign": "x",
-    "warningSign": "x",
-    "infoSign": "x"
-  }
+  "eslint.autoFixOnSave": true,
+  "eslint.nodePath": "./node_modules",
+  "diagnostic.errorSign": "•",
+  "diagnostic.warningSign": "•",
+  "diagnostic.infoSign": "•"
 }

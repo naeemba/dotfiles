@@ -129,6 +129,7 @@ alias fs="flow status"
 alias es="eslint"
 alias tr="systemctl restart tor"
 alias lg="journalctl -exfu"
+alias dl="aria2c -x16"
 
 export PATH=$PATH:$HOME/.cabal/bin
 export PATH=$HOME/.bin:$PATH

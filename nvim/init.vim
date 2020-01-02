@@ -42,6 +42,9 @@ Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'leafgarland/typescript-vim'
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'lambdalisue/suda.vim'
+Plug 'chrisbra/SudoEdit.vim'
+Plug 'peitalin/vim-jsx-typescript'
+Plug 'jparise/vim-graphql'
 call plug#end()
 
 " CtrlpZ, fasd intergration
@@ -311,7 +314,7 @@ function! s:show_documentation()
   if &filetype == 'vim'		
     execute 'h '.expand('<cword>')		
   else		
-    call CocAction('doHover')		
+    call CocActionAsync('doHover')		
   endif		
 endfunction		
 nnoremap <silent> K :call <SID>show_documentation()<CR>		

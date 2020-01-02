@@ -1,4 +1,12 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =2
-let g:netrw_dirhist_1='/home/sharp/workspace/front-end/packages/common/web/cashier'
-let g:netrw_dirhist_2='/home/sharp/workspace/front-end'
+let g:netrw_dirhistcnt =7
+let g:netrw_dirhist_7='/home/sharp/workspace/front-end/packages/common/web/hook'
+let g:netrw_dirhist_6='/home/sharp/workspace/nisinyc-front/components/Module/ImageTiles'
+let g:netrw_dirhist_5='/home/sharp/workspace/nisinyc-front/components/Module'
+let g:netrw_dirhist_4='/home/sharp/workspace/nisinyc-front/components/Module/Slider'
+let g:netrw_dirhist_3='/home/sharp/workspace/nisinyc-front/components/Module'
+let g:netrw_dirhist_2='/home/sharp/workspace/nisinyc-front/components'
+let g:netrw_dirhist_1='/home/sharp/workspace/nisinyc-front'
+let g:netrw_dirhist_0='/home/sharp/workspace/nisinyc-front/components'
+let g:netrw_dirhist_9='/home/sharp/workspace/nisinyc-front/components/Layout'
+let g:netrw_dirhist_8='/home/sharp/workspace/nisinyc-front/pages'

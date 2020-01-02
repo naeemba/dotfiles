@@ -8,3 +8,4 @@
 	prettylog = log --pretty=format:'%Cred%H%Creset %C(yellow)%ad%Creset %s %Cgreen%an%Creset'
 [core]
 	editor = nvim
+  excludesfile = ~/.gitignore

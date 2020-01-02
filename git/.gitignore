@@ -1,0 +1,27 @@
+# vim:ft=gitconfig:
+.vim
+
+# eclipse
+.project
+.pydevproject
+
+# komodo
+*.komodoproject
+.komodotools
+
+# python
+*.pyc
+__pycache__
+
+# vim
+*.swp
+
+# gedit
+*~
+.dir-locals.el
+.tern-port
+
+.eslintrc.js
+.lvimrc
+.session.vim
+.undodir/
