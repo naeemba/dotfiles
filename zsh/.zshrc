@@ -132,6 +132,7 @@ alias lg="journalctl -exfu"
 alias dl="aria2c -x16"
 alias gblu="git remote update origin --prune"
 alias nord="nordvpn connect United_States New_York"
+alias p="protonvpn"
 
 export PATH=$PATH:$HOME/.cabal/bin
 export PATH=$HOME/.bin:$PATH
