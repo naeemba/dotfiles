@@ -327,3 +327,10 @@ nmap <silent> <leader>ep <Plug>(coc-diagnostic-prev)
 nmap <silent> <leader>en <Plug>(coc-diagnostic-next)		
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}		
 hi illuminatedWord cterm=bold ctermfg=121 gui=bold guifg=#2aa198
+
+" Remap for do codeAction of selected region
+function! s:cocActionsOpenFromSelected(type) abort
+  execute 'CocCommand actions.open ' . a:type
+endfunction
+xmap <silent> <leader>a :<C-u>execute 'CocCommand actions.open ' . visualmode()<CR>
+nmap <silent> <leader>a :<C-u>set operatorfunc=<SID>cocActionsOpenFromSelected<CR>g@
