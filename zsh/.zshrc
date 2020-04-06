@@ -111,6 +111,7 @@ export BORG_CACHE_DIR="/home/sharp/borg/cache"
 export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --preview '[[ \$(file --mime {}) =~ binary ]] && echo {} is a binary file || (highlight -O ansi -l {} || cat {}) 2> /dev/null | head -500' "
 alias e=$EDITOR
 alias vim=nvim
+alias n=nvim
 alias down="aria2c --conf-path=${HOME}/.aria2/down.conf"
 alias bdown="aria2c --conf-path=${HOME}/.aria2/bersam.conf"
 alias tdown="aria2c --all-proxy=http://127.0.0.1:7777 --conf-path=${HOME}/.aria2/down.conf"
@@ -133,6 +134,7 @@ alias dl="aria2c -x16"
 alias gblu="git remote update origin --prune"
 alias nord="nordvpn connect United_States New_York"
 alias p="protonvpn"
+alias pc="protonvpn c us-free#3"
 
 export PATH=$PATH:$HOME/.cabal/bin
 export PATH=$HOME/.bin:$PATH
