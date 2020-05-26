@@ -153,10 +153,10 @@ inoremap jj <Esc>
 " fzf
 cnoremap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 nnoremap <silent> <leader>b :Buffers<CR>
-nmap <leader>o :History<CR>
-nmap <leader>p :GFiles<CR>
-nmap <C-p> :GFiles<CR>
-nmap <leader>/ :Rg<CR>
+nmap <leader>o ;History<CR>
+nmap <leader>p ;GFiles<CR>
+nmap <C-p> ;GFiles<CR>
+nmap <leader>/ ;Rg<CR>
 "   :Ag  - Start fzf with hidden preview window that can be enabled with "?" key
 "   :Ag! - Start fzf in fullscreen and display the preview window above
 
@@ -334,3 +334,7 @@ function! s:cocActionsOpenFromSelected(type) abort
 endfunction
 xmap <silent> <leader>a :<C-u>execute 'CocCommand actions.open ' . visualmode()<CR>
 nmap <silent> <leader>a :<C-u>set operatorfunc=<SID>cocActionsOpenFromSelected<CR>g@
+
+" Switch ; and :
+nnoremap ; :
+nnoremap : ;
