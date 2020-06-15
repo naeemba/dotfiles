@@ -200,6 +200,7 @@ alias gblu="git remote update origin --prune"
 alias p="protonvpn"
 alias pc="protonvpn c us-free#3"
 alias nr="npm run"
+alias ns="npm start"
 
 export PATH=$PATH:$HOME/.cabal/bin
 export PATH=$HOME/.bin:$PATH
