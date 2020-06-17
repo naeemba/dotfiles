@@ -201,6 +201,10 @@ alias p="protonvpn"
 alias pc="protonvpn c us-free#3"
 alias nr="npm run"
 alias ns="npm start"
+alias ex="expressvpn"
+alias ec="expressvpn connect smart"
+alias ed="expressvpn disconnect"
+alias ecu="expressvpn connect usny"
 
 export PATH=$PATH:$HOME/.cabal/bin
 export PATH=$HOME/.bin:$PATH
