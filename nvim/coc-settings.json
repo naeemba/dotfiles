@@ -1,5 +1,5 @@
 {
-  "tsserver.enable": false,
+  "tsserver.enable": true,
   "snippets.extends": {
     "javascript.jsx": ["javascript"],
     "javascriptreact": ["javascript"]

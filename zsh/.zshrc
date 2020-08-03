@@ -8,6 +8,10 @@ source "${HOME}/.zgen/zgen.zsh"
 
 # check if there's no init script
 
+HISTFILE=~/.zsh_history
+HISTSIZE=999999999
+SAVEHIST=$HISTSIZE
+
 if ! zgen saved; then
     echo "Creating a zgen save"
 
@@ -202,9 +206,12 @@ alias pc="protonvpn c us-free#3"
 alias nr="npm run"
 alias ns="npm start"
 alias ex="expressvpn"
-alias ec="expressvpn connect smart"
+alias ec="expressvpn connect"
+alias ecg="expressvpn connect defr1"
 alias ed="expressvpn disconnect"
 alias ecu="expressvpn connect usny"
+alias nmr="sudo systemctl restart NetworkManager"
+alias gf="git fetch --all --prune"
 
 export PATH=$PATH:$HOME/.cabal/bin
 export PATH=$HOME/.bin:$PATH
