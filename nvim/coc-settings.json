@@ -6,7 +6,12 @@
   },
   "eslint.autoFixOnSave": true,
   "eslint.nodePath": "./node_modules",
+  "eslint.options": {
+    "configFile": "config.eslint.js"
+  },
   "diagnostic.errorSign": "•",
   "diagnostic.warningSign": "•",
-  "diagnostic.infoSign": "•"
+  "diagnostic.infoSign": "•",
+  "tabnine.priority": 200,
+  "tabnine.shortcut": "TN"
 }

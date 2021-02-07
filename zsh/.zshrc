@@ -205,13 +205,23 @@ alias p="protonvpn"
 alias pc="protonvpn c us-free#3"
 alias nr="npm run"
 alias ns="npm start"
+alias ni="npm install"
+alias nl="npm run lint"
+alias nt="npm run test"
+alias nb="npm run build"
+alias nd="npm run dev"
+alias nta="npm run test:all"
+alias nrd="npm run dev"
 alias ex="expressvpn"
-alias ec="expressvpn connect"
+alias ec="expressvpn connect smart"
 alias ecg="expressvpn connect defr1"
 alias ed="expressvpn disconnect"
 alias ecu="expressvpn connect usny"
 alias nmr="sudo systemctl restart NetworkManager"
 alias gf="git fetch --all --prune"
+alias pr="pulseaudio -k ; pulseaudio -D"
+alias pi="ssh pi@192.168.0.104"
+alias kv="kill -9 $(ps aux --sort -rss  | awk '/vlc/ {print $2}' | head -n1)"
 
 export PATH=$PATH:$HOME/.cabal/bin
 export PATH=$HOME/.bin:$PATH
@@ -223,3 +233,5 @@ export PATH=$PYENV_ROOT/bin:$PATH
 eval "$(direnv hook zsh)"
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

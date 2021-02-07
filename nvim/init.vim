@@ -4,8 +4,7 @@ Plug 'mxw/vim-jsx'
 Plug 'TaDaa/vimade'
 Plug 'mcchrish/nnn.vim'
 Plug 'skywind3000/asyncrun.vim'
-Plug '/usr/local/opt/fzf'
-Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'do': './install --all' } | Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-commentary'
 Plug 'airblade/vim-gitgutter'
 Plug 'Raimondi/delimitMate'
@@ -31,7 +30,7 @@ Plug 'tpope/vim-repeat'
 Plug 'simnalamburt/vim-mundo'
 Plug 'haya14busa/vim-keeppad'
 Plug 'honza/vim-snippets'
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'embear/vim-localvimrc'
 Plug 'lifepillar/vim-solarized8'
 Plug 'godlygeek/tabular'
@@ -46,6 +45,8 @@ Plug 'chrisbra/SudoEdit.vim'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'jparise/vim-graphql'
 call plug#end()
+
+set shell=/usr/bin/zsh
 
 " CtrlpZ, fasd intergration
 let g:ctrlp_map = ''
@@ -318,6 +319,13 @@ function! s:show_documentation()
   endif		
 endfunction		
 nnoremap <silent> K :call <SID>show_documentation()<CR>		
+
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+
 nmap <silent> gd <Plug>(coc-definition)		
 nmap <silent> gy <Plug>(coc-type-definition)		
 nmap <silent> gi <Plug>(coc-implementation)		
@@ -332,9 +340,32 @@ hi illuminatedWord cterm=bold ctermfg=121 gui=bold guifg=#2aa198
 function! s:cocActionsOpenFromSelected(type) abort
   execute 'CocCommand actions.open ' . a:type
 endfunction
-xmap <silent> <leader>a :<C-u>execute 'CocCommand actions.open ' . visualmode()<CR>
-nmap <silent> <leader>a :<C-u>set operatorfunc=<SID>cocActionsOpenFromSelected<CR>g@
+xmap <silent> <leader>a ;<C-u>execute 'CocCommand actions.open ' . visualmode()<CR>
+nmap <silent> <leader>a ;<C-u>set operatorfunc=<SID>cocActionsOpenFromSelected<CR>g@
+
+" vmap <leader>a ;CocCommad actions.open<CR>
+" nmap <leader>a ;CocCommand actions.open<CR>
+
+" End Coc
 
 " Switch ; and :
 nnoremap ; :
 nnoremap : ;
+
+"better split movements
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" move lines up or down
+nnoremap <A-j> :m .+1<CR>==
+nnoremap <A-k> :m .-2<CR>==
+inoremap <A-j> <Esc>:m .+1<CR>==gi
+inoremap <A-k> <Esc>:m .-2<CR>==gi
+vnoremap <A-j> :m '>+1<CR>gv=gv
+vnoremap <A-k> :m '<-2<CR>gv=gv
+
+"move vertically by visual line
+nnoremap j gj
+nnoremap k gk
