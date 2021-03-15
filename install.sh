@@ -10,3 +10,7 @@ ln -sf "$PWD/git/.gitconfig" "$HOME/.gitconfig"
 ln -sf "$PWD/zsh/.zshrc" "$HOME/.zshrc"
 
 ln -sf "$PWD/tig/.tigrc" "$HOME/.tigrc"
+
+ln -sf "$PWD/i3/config" "$HOME/.config/i3/config"
+ln -sf "$PWD/i3/polybar.sh" "$HOME/.config/i3/polybar.sh"
+ln -sf "$PWD/i3/monitors.sh" "$HOME/.config/i3/monitors.sh"
