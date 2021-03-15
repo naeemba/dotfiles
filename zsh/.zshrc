@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # load zgen  -*- mode: sh; -*-
 
 export LC_ALL=en_US.UTF-8
@@ -24,7 +31,7 @@ if ! zgen saved; then
     zgen oh-my-zsh plugins/fzf
     zgen oh-my-zsh plugins/gpg-agent
     zgen oh-my-zsh plugins/npm
-    zgen oh-my-zsh plugins/npx
+    # zgen oh-my-zsh plugins/npx
     zgen oh-my-zsh plugins/pass
     zgen oh-my-zsh plugins/archlinux
     zgen oh-my-zsh plugins/vi-mode
@@ -53,10 +60,11 @@ if ! zgen saved; then
     zgen load djui/alias-tips
     zgen load Tarrasch/zsh-bd
     zgen load larkery/zsh-histdb
+    zgen load romkatv/powerlevel10k powerlevel10k
     # zgen load lukechilds/zsh-nvm
 
     # theme
-    zgen oh-my-zsh themes/agnoster
+    # zgen oh-my-zsh themes/agnoster
 
     # save all to init script
     zgen save
@@ -102,6 +110,7 @@ bindkey -M vicmd 'j' history-substring-search-down
 # This is a fix for home and end buttons
 # https://github.com/ohmyzsh/ohmyzsh/issues/7330#issuecomment-475844784
 typeset -A key
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 
 key[Home]=${terminfo[khome]}
 
@@ -219,9 +228,13 @@ alias ed="expressvpn disconnect"
 alias ecu="expressvpn connect usny"
 alias nmr="sudo systemctl restart NetworkManager"
 alias gf="git fetch --all --prune"
+alias gmd="gm origin/develop"
+alias gpsu="gp --set-upstream origin"
 alias pr="pulseaudio -k ; pulseaudio -D"
 alias pi="ssh pi@192.168.0.104"
 alias kv="kill -9 $(ps aux --sort -rss  | awk '/vlc/ {print $2}' | head -n1)"
+alias sm="/home/sharp/Software/macOS-Simple-KVM/basic.sh"
+alias pass-gen="node ./passwordGenerator.js"
 
 export PATH=$PATH:$HOME/.cabal/bin
 export PATH=$HOME/.bin:$PATH
@@ -235,3 +248,6 @@ eval "$(direnv hook zsh)"
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

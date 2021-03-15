@@ -6,12 +6,13 @@
   },
   "eslint.autoFixOnSave": true,
   "eslint.nodePath": "./node_modules",
-  "eslint.options": {
-    "configFile": "config.eslint.js"
-  },
   "diagnostic.errorSign": "•",
   "diagnostic.warningSign": "•",
   "diagnostic.infoSign": "•",
   "tabnine.priority": 200,
-  "tabnine.shortcut": "TN"
+  "tabnine.shortcut": "TN",
+  "cSpell.userWords": [
+    "Appbar",
+    "recents"
+  ]
 }
