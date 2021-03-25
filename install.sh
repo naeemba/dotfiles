@@ -7,6 +7,7 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 
 ln -sf "$PWD/git/.gitconfig" "$HOME/.gitconfig"
 
+git clone https://github.com/tarjoilija/zgen.git "${HOME}/.zgen"
 ln -sf "$PWD/zsh/.zshrc" "$HOME/.zshrc"
 
 ln -sf "$PWD/tig/.tigrc" "$HOME/.tigrc"

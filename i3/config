@@ -264,6 +264,9 @@ bindsym $mod+Tab exec --no-startup-id (setxkbmap -query | grep -q "layout:\s\+us
 # transparent background settings
 exec_always --no-startup-id picom
 
+# Make Caps Lock a Control key
+exec_always --no-startup-id setxkbmap -option ctrl:nocaps
+
 
 
 # keyring for chrome
