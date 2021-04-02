@@ -72,7 +72,7 @@ scroll-down = i3wm-wsprev
 [bar/top]
 inherit = bar/base
 
-modules-left = date
+modules-left = date network-localip network-ipinfo
 modules-center = i3
 modules-right = spotify
 
@@ -438,3 +438,15 @@ menu-2-0 = power off
 menu-2-0-exec = sudo poweroff
 menu-2-1 = cancel
 menu-2-1-exec = menu-open-0
+
+;https://github.com/polybar/polybar-scripts/tree/master/polybar-scripts/network-localip
+[module/network-localip]
+type = custom/script
+exec = ~/dotfiles/polybar/scripts/local-ip.sh
+interval = 60
+
+;https://github.com/polybar/polybar-scripts/tree/master/polybar-scripts/network-ipinfo.io
+[module/network-ipinfo]
+type = custom/script
+exec = ~/dotfiles/polybar/scripts/network-ipinfo.io.sh
+interval = 60

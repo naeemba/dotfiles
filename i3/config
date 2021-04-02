@@ -267,3 +267,6 @@ exec_always --no-startup-id picom
 
 # keyring for chrome
 exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=secrets
+
+exec --no-startup-id /usr/lib/kdeconnectd
+exec --no-startup-id kdeconnect-indicator
