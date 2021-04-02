@@ -33,6 +33,7 @@ Plug 'honza/vim-snippets'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'embear/vim-localvimrc'
 Plug 'lifepillar/vim-solarized8'
+Plug 'danilo-augusto/vim-afterglow'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'junegunn/goyo.vim'
@@ -79,8 +80,12 @@ set number relativenumber
 syntax enable
 set background=dark
 set termguicolors
+" let g:afterglow_blackout=1
+" let g:afterglow_italic_comments=1
+" let g:afterglow_inherit_background=1
 " let g:solarized_termtrans=1
-colorscheme solarized8
+colorscheme solarized8_flat
+" colorscheme afterglow
 set cursorline
 if exists('g:GuiLoaded')
   Guifont! Iosevka:h13

@@ -9,4 +9,7 @@ for m in $(polybar --list-monitors | cut -d":" -f1); do
     MONITOR=$m polybar --reload top &
 done
 
+# Make Caps Lock a Control key
+setxkbmap -option ctrl:nocaps
+
 # xrandr --output DP-0.2 --primary --mode 2560x1440 --pos 1920x0 --rotate left --output DP-0 --off --output DP-1 --mode 1920x1080 --pos 3360x931 --rotate normal --output HDMI-0 --off --output eDP-1-1 --mode 1920x1080 --pos 0x931 --rotate normal

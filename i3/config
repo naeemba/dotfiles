@@ -212,7 +212,8 @@ mode "resize" {
 
 # bindsym $mod+shift+x exec i3lock --color "$bg-color"
 # bindsym $mod+shift+x exec "$HOME/.config/i3/lock.sh $HOME/.config/i3/lock.png"
-bindsym $mod+shift+x exec betterlockscreen --lock dim
+# bindsym $mod+shift+x exec betterlockscreen --lock dim
+bindsym $mod+shift+x exec betterlockscreen -l dim
 
 
 # Sreen brightness controls
@@ -253,7 +254,7 @@ exec_always --no-startup-id ~/.config/i3/polybar.sh
 
 exec_always --no-startup-id feh --bg-fill /home/sharp/Pictures/wallpaper3.jpg --bg-fill /home/sharp/Pictures/wallpaper2.jpg --bg-fill /home/sharp/Pictures/wallpaper2.jpg
 
-exec --no-startup-id ~/dotfiles/i3/2monitors.sh
+exec --no-startup-id ~/dotfiles/i3/4monitors.sh
 
 # exec_always setxkbmap -layout us,ir -option 'grp:lctrl_lwin_rctrl_menu,grp_led:caps'
 
@@ -263,11 +264,6 @@ bindsym $mod+Tab exec --no-startup-id (setxkbmap -query | grep -q "layout:\s\+us
 
 # transparent background settings
 exec_always --no-startup-id picom
-
-# Make Caps Lock a Control key
-exec_always --no-startup-id setxkbmap -option ctrl:nocaps
-
-
 
 # keyring for chrome
 exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=secrets

@@ -1,0 +1,440 @@
+[colors]
+xfs=#e1e1e1
+xbs=#8c91cf
+xfg=#fff
+xbg2=#aa000000
+xbg=#aa000000
+red=#00191919
+orange=#E85D00
+yellow=#faa41a
+green=#87a566
+teal=#00a489
+blue=#4169e1
+purple=#7851a9
+brown=#574F4A
+
+[variables]
+mpadding = 2
+margin = 3 
+
+[bar/base]
+monitor = ${env:MONITOR:}
+
+font-0 = "System San Francisco Display:style=regular:size=10;1"
+font-1 = fontawesome
+
+background = ${colors.xbg}
+foreground = ${colors.xfg}
+
+width = 100%:-20
+height = 25
+offset-y = 0
+offset-x = 10
+
+dim-value = 1.0
+
+border-top-size = 3
+border-bottom-size = 3
+border-right-size = 0
+border-left-size = 0
+
+spacing = 0
+
+override-redirect = true
+
+overline-size = 6
+overline-color=${colors.xbs}
+underline-size = 2
+underline-color=${colors.orange}
+
+padding-left = 2
+padding-right = 2
+module-margin-left = 2
+module-margin-right = 2
+
+tray-maxsize = 22
+tray-padding = 8
+tray-position = right
+
+enable-ipc = true
+border-color =${colors.xbg}
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+label-urgent-foreground = #000000
+label-urgent-background = #bd2c40
+
+wm-restack = i3
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
+
+[bar/top]
+inherit = bar/base
+
+modules-left = date
+modules-center = i3
+modules-right = spotify
+
+[bar/bottom]
+inherit = bar/base
+
+bottom = true
+
+modules-left = ewmh title
+modules-right = memory cpu battery temperature xkeyboard wlan vpn pulseaudio dunst powermenu
+
+[settings]
+;https://github.com/jaagr/polybar/wiki/Configuration#application-settings
+throttle-output = 5
+throttle-output-for = 10
+;throttle-input-for = 30
+screenchange-reload = true
+compositing-background = over
+compositing-foreground = over
+compositing-overline = over
+compositing-underline = over
+compositing-border = over
+
+; Define fallback values used by all module formats
+format-underline =
+format-overline =
+format-spacing =
+format-padding =
+format-margin =
+format-offset =
+
+[global/wm]
+margin-top = 12
+margin-bottom = 8
+
+[module/ewmh]
+type = internal/xworkspaces
+enable-click = true
+enable-scroll = true
+icon-0 = star;
+icon-1 = firefox;
+icon-2 = chat;
+icon-3 = music;
+icon-4 = editor;
+icon-5 = todo;
+label-active = %icon%
+label-occupied = %icon%
+label-urgent = %icon%
+label-empty = %icon%
+label-active-padding = ${variables.mpadding}
+label-urgent-padding = ${variables.mpadding}
+label-empty-padding = ${variables.mpadding}
+label-occupied-padding = ${variables.mpadding}
+label-active-foreground = #6eaca8
+
+[module/line]
+type = custom/text
+content=" | "
+
+[module/spotify]
+type = custom/script
+interval = 1
+format-prefix = " "
+format = <label>
+exec = python ~/.config/polybar/spotify.py -f '{song} - {artist} - {album}'
+format-underline = #1db954
+
+
+[module/date]
+type = internal/date
+interval = 5
+
+date = "%m-%d "
+date-alt = "%Y-%m-%d "
+
+time = %H:%M
+time-alt = %H:%M:%S
+
+label = %date%%time%
+format-padding = ${variables.mpadding}
+format-margin = ${variables.margin}
+
+[module/netspeed]
+type = internal/network
+interface = wlp0s20f3
+interval = 1.0
+format-connected = <label-connected>
+format-connected-padding = ${variables.mpadding}
+format-connected-background=${colors.xbg2}
+label-connected = "  %upspeed%   %downspeed%"
+
+[module/wlan]
+type = internal/network
+interface = wlp0s20f3
+interval = 1.0
+format-connected = <label-connected>
+format-disconnected = <label-disconnected>
+format-connected-padding = ${variables.mpadding}
+format-connected-background=${colors.xbg2}
+label-connected =   %essid%
+
+[module/xbacklight]
+type = internal/backlight
+card = intel_backlight
+enable-scroll = true
+format =<ramp> <label>
+interval = 2
+ramp-0 ="􀆫"
+ramp-1 ="􀆭"
+label = %percentage%%
+format-padding = ${variables.mpadding}
+format-background=${colors.xbg2}
+
+[module/pulseaudio]
+type = internal/pulseaudio
+interval = 5
+format-volume = <ramp-volume> <label-volume>
+format-volume-padding = 1
+format-volume-background=${colors.xbg2}
+label-muted-background = ${colors.xbg2}
+label-muted-padding = 1
+label-muted =  ﱝ
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+ramp-volume-3 = 
+
+[module/mpd]
+type = internal/mpd
+format-online = <icon-prev> <icon-seekb> <icon-stop> <toggle> <icon-seekf> <icon-next>  <icon-repeat> <icon-random>  <bar-progress> <label-time>  <label-song>
+
+; Host where mpd is running (either ip or domain name)
+; Can also be the full path to a unix socket where mpd is running.
+host = 127.0.0.1
+port = 6600
+
+icon-play = ⏵
+icon-pause = ⏸
+icon-stop = ⏹
+icon-prev = ⏮
+icon-next = ⏭
+icon-seekb = ⏪
+icon-seekf = ⏩
+icon-random = 🔀
+icon-repeat = 🔁
+icon-repeatone = 🔂
+icon-single = 🔂
+icon-consume = ✀
+
+
+bar-progress-width = 45
+bar-progress-indicator = |
+bar-progress-fill = ─
+bar-progress-empty = ─
+
+; Seconds to sleep between progressbar/song timer sync
+; Default: 1
+interval = 2
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = ADP1
+full-at = 100
+format-charging = <label-charging>
+format-charging-padding = ${variables.mpadding}
+format-charging-bakground=${colors.xbg2}
+format-discharging-padding = ${variables.mpadding}
+format-discharging-background=${colors.xbg2}
+format-discharging = <ramp-capacity>   <label-discharging>
+format-full-prefix = "   "
+format-full-background=${colors.xbg2}
+label-charging =   %percentage%%
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+[module/cpu]
+format-padding = ${variables.mpadding}
+type = internal/cpu
+interval = 2
+format-prefix = "CPU"
+format-prefix-foreground = ${colors.xfg}
+label = %percentage:2%%
+
+[module/memory]
+format-padding = ${variables.mpadding}
+format-margin = ${variables.margin}
+type = internal/memory
+interval = 2
+format-prefix = "MEM:"
+format-prefix-foreground = ${colors.xfg}
+label = %percentage_used%%
+
+[module/temperature]
+type = internal/temperature
+thermal-zone = 0
+warn-temperature = 60
+format = "<label> "
+format-warn = "<label-warn>"
+label = %temperature-c%
+label-warn = %temperature-c%
+label-warn-foreground = #E85D00
+label-foreground = #000000
+ramp-foreground = ${colors.xfg}
+ramp-0 = A
+ramp-1 = B
+ramp-2 = C
+
+[module/title]
+type = internal/xwindow
+label-maxlen = 50
+label-empty = No Window
+
+[module/xkeyboard]
+type = internal/xkeyboard
+label-layout-padding = ${variables.mpadding}
+blacklist-0 = num lock
+label-layout =   %layout%
+
+[module/clocking]
+type = custom/script
+exec = clocking
+format = | <label>
+interval = 1
+exec-if = clocking
+
+[module/vpn]
+type = custom/script
+exec = nordvpnteams status|grep -i vpn|grep -q Connected && echo 
+exec-if = nordvpnteams status|grep -i vpn|grep -q Connected
+format = <label>
+format-padding = 1
+interval = 1
+
+[module/dunst]
+type = custom/script
+exec = dunstctl is-paused|grep -q true && echo   || echo 
+format = <label>
+interval = 1
+click-left = dunstctl set-paused toggle
+format-padding = ${variables.mpadding}
+
+[module/wallpaper]
+type = custom/text
+content = 
+click-left = systemctl --user restart feh-wallpaper.service
+content-padding = ${variables.mpadding}c
+
+[module/i3]
+type = internal/i3
+
+pin-workspaces = true
+strip-wsnumbers = true
+index-sort = true
+
+; Use fuzzy (partial) matching on labels when assigning 
+; icons to workspaces
+; Example: code;♚ will apply the icon to all workspaces 
+; containing 'code' in the label
+; Default: false
+fuzzy-match = true
+
+ws-icon-0 = 1;♚
+ws-icon-1 = 2;♛
+ws-icon-2 = 3;♜
+ws-icon-3 = 4;♝
+ws-icon-4 = 5;♞
+ws-icon-default = ♟
+
+label-dimmed-underline = ${root.background}
+
+; Available tags:
+;   <label-state> (default) - gets replaced with <label-(focused|unfocused|visible|urgent)>
+;   <label-mode> (default)
+format = <label-state> <label-mode>
+
+; Available tokens:
+;   %mode%
+; Default: %mode%
+label-mode = %mode%
+label-mode-padding = 0
+label-mode-background = #e60053
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
+label-focused =  %index%
+;label-focused-foreground = #ffffff
+label-focused-underline = ${colors.yellow}
+label-focused-padding = 4
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
+label-unfocused = %index%
+label-unfocused-padding = 4
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
+label-visible = %index%
+label-visible-underline = #0f00ff00
+label-visible-padding = 4
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
+label-urgent = %index%
+label-urgent-foreground = #000000
+label-urgent-background = #bd2c40
+label-urgent-padding = 4
+
+; Separator in between workspaces
+label-separator = |
+label-separator-padding = 0
+label-separator-foreground = #ffb52a
+
+[module/powermenulauncher]
+type = custom/text
+content = "   "
+click-left = polybar powermenu
+
+[module/powermenu]
+type = custom/menu
+
+expand-right = true
+
+format-spacing = 1
+
+label-open =  "      "
+label-open-foreground = ${colors.xfs}
+label-close = cancel
+label-close-foreground = ${colors.xfs}
+label-separator = |
+label-separator-foreground = ${colors.xfg}
+
+menu-0-0 = reboot
+menu-0-0-exec = menu-open-1
+menu-0-1 = power off
+menu-0-1-exec = menu-open-2
+
+menu-1-0 = cancel
+menu-1-0-exec = menu-open-0
+menu-1-1 = reboot
+menu-1-1-exec = sudo reboot
+
+menu-2-0 = power off
+menu-2-0-exec = sudo poweroff
+menu-2-1 = cancel
+menu-2-1-exec = menu-open-0
