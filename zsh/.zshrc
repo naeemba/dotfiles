@@ -233,6 +233,7 @@ alias gpsu="gp --set-upstream origin"
 alias pr="pulseaudio -k ; pulseaudio -D"
 alias pi="ssh pi@192.168.0.104"
 alias kv="kill -9 $(ps aux --sort -rss  | awk '/vlc/ {print $2}' | head -n1)"
+alias kd="kill -9 $(ps aux --sort -rss  | awk '/dota/ {print $2}' | head -n1)"
 alias sm="/home/sharp/Software/macOS-Simple-KVM/basic.sh"
 alias pass-gen="node /home/sharp/dotfiles/zsh/passwordGenerator.js"
 

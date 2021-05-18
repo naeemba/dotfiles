@@ -257,7 +257,7 @@ exec_always --no-startup-id ~/.config/i3/polybar.sh
 
 exec_always --no-startup-id feh --bg-fill /home/sharp/Pictures/wallpaper3.jpg --bg-fill /home/sharp/Pictures/wallpaper2.jpg --bg-fill /home/sharp/Pictures/wallpaper2.jpg
 
-exec --no-startup-id ~/dotfiles/i3/4monitors.sh
+exec --no-startup-id ~/dotfiles/i3/2monitors.sh
 
 # exec_always setxkbmap -layout us,ir -option 'grp:lctrl_lwin_rctrl_menu,grp_led:caps'
 
