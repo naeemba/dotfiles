@@ -1,5 +1,5 @@
 [http]
-  proxy = socks5://127.0.0.1:9050
+#  proxy = socks5://127.0.0.1:9050
 [user]
 	name = Naeem Baghi
 	email = baghinaeem@gmail.com
