@@ -135,16 +135,24 @@ set noswapfile
 set fileformats=unix,dos,mac
 
 " IndentLine
+" is used for code indented with spaces
 let g:indentLine_enabled = 1
 let g:indentLine_concealcursor = 0
-let g:indentLine_char = '┆'
+let g:indentLine_char = '▏'
 let g:indentLine_faster = 1
+" is used for code indented with tabs
+set list
+set list listchars=tab:❘⠀,extends:»,precedes:«,nbsp:×,eol:⏎
 
 " Indent
-set tabstop=2
+set autoindent
+set tabstop=4
 set softtabstop=0
-set shiftwidth=2
-set expandtab
+set shiftwidth=4
+" use spaces instead of tabs
+" set expandtab
+" use tabs instead of spaces
+set noexpandtab
 
 " Mouse integration
 set mousemodel=popup
