@@ -50,6 +50,7 @@ if ! zgen saved; then
     zgen oh-my-zsh plugins/history-substring-search
     zgen oh-my-zsh plugins/pip
     zgen oh-my-zsh plugins/python
+	zgen oh-my-zsh plugins/ssh-agent
     zgen load zsh-users/zsh-syntax-highlighting
     zgen load zsh-users/zaw
     zgen load zsh-users/zsh-completions src
@@ -71,6 +72,8 @@ if ! zgen saved; then
 fi
 
 export FZF_BASE="/usr/bin/fzf"
+
+zstyle :omz:plugins:ssh-agent identities work personal
 
 _zsh_autosuggest_strategy_histdb_top_here() {
     local query="select commands.argv from
@@ -243,6 +246,10 @@ export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools
 export PATH=$PATH:$JAVA_HOME/bin
 export PATH=$PYENV_ROOT/bin:$PATH
+export MANPATH="${MANPATH-$(manpath)}:$NPM_PACKAGES/share/man"
+NPM_PACKAGES="${HOME}/.npm-global"
+export PATH="$PATH:$NPM_PACKAGES/bin"
+
 
 eval "$(direnv hook zsh)"
 
