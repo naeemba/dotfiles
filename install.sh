@@ -6,6 +6,8 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 ln -sf "$PWD/git/.gitconfig" "$HOME/.gitconfig"
+ln -sf "$PWD/git/.gitignore" "$HOME/.gitignore"
+ln -sf "$PWD/git/.work-gitconfig" "$HOME/.work/.gitconfig"
 
 git clone https://github.com/tarjoilija/zgen.git "${HOME}/.zgen"
 ln -sf "$PWD/zsh/.zshrc" "$HOME/.zshrc"
@@ -23,6 +25,8 @@ ln -sf "$PWD/tig/.tigrc" "$HOME/.tigrc"
 #ln -sf "$PWD/chrome/chromium-flags.conf" "$HOME/.config/chromium-flags.conf"
 mkdir -p "$HOME/.config/rofi"
 ln -sf "$PWD/rofi/rofi" "$HOME/.config/rofi/rofi"
+mkdir -p "$HOME/.ssh"
+ln -sf "$PWD/ssh/config" "$HOME/.ssh/config"
 #ln -sf "$PWD/redshift/redshift.conf" "$HOME/.config/redshift/redshift.conf"
 #ln -sf "$PWD/dunst/dunstrc" "$HOME/.config/dunst/dunstrc"
 mkdir -p "$HOME/.gradle"

@@ -9,3 +9,6 @@
 [core]
 	editor = nvim
 	excludesfile = ~/.gitignore
+
+[includeIf "gitdir:~/Workspace/work/"]
+    path = ~/.work/.gitconfig
