@@ -390,3 +390,10 @@ augroup import_cost_auto_run
   autocmd BufEnter *.js,*.jsx,*.ts,*.tsx ImportCost
   autocmd CursorHold *.js,*.jsx,*.ts,*.tsx ImportCost
 augroup END
+
+
+" ledger shortcuts
+nnoremap <leader>ld :call ledger#transaction_date_set(line('.'), 'primary')<CR>		
+
+" apply LedgerAlignBuffer on save ledger file
+autocmd BufWritePost *.ledger :LedgerAlignBuffer
