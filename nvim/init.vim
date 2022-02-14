@@ -371,6 +371,11 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+"resize splits
+:nnoremap <leader><C-J> :resize -10<CR>
+:nnoremap <leader><C-K> :resize +10<CR>
+:nnoremap <leader><C-L> :vertical resize +10<CR>
+:nnoremap <leader><C-H> :vertical resize -10<CR>
 
 " move lines up or down
 nnoremap <A-j> :m .+1<CR>==
