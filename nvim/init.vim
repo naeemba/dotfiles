@@ -307,7 +307,7 @@ lua require'colorizer'.setup()
 	" coc		
 "		
 let g:coc_global_extensions = ['coc-snippets', 'coc-yank', 'coc-flow', 'coc-eslint', 'coc-word'		
-      \, 'coc-sh']		
+      \, 'coc-sh', 'coc-tsserver', 'coc-tabnine']		
 " Use tab for trigger completion with characters ahead and navigate.		
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.		
 inoremap <silent><expr> <TAB>		
