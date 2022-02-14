@@ -1,4 +1,5 @@
 call plug#begin('~/.vim/plugged')
+Plug 'folke/which-key.nvim'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'TaDaa/vimade'
@@ -402,3 +403,13 @@ nnoremap <leader>ld :call ledger#transaction_date_set(line('.'), 'primary')<CR>
 
 " apply LedgerAlignBuffer on save ledger file
 autocmd BufWritePost *.ledger :LedgerAlignBuffer
+
+set timeoutlen=300
+
+lua << EOF
+  require("which-key").setup {
+    -- your configuration comes here
+    -- or leave it empty to use the default settings
+    -- refer to the configuration section below
+  }
+EOF
