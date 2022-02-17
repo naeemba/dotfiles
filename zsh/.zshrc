@@ -214,8 +214,6 @@ alias lg="journalctl -exfu"
 alias dl="aria2c -x16"
 alias dlm="aria2c --dir=./ --input-file=urls.txt --max-concurrent-downloads=1 --connect-timeout=60 --max-connection-per-server=16 --split=16 --min-split-size=1M --human-readable=true --download-result=full --file-allocation=none"
 alias gblu="git remote update origin --prune"
-alias p="protonvpn"
-alias pc="protonvpn c us-free#3"
 alias nr="npm run"
 alias ns="npm start"
 alias ni="npm install"
@@ -225,11 +223,6 @@ alias nb="npm run build"
 alias nd="npm run dev"
 alias nta="npm run test:all"
 alias nrd="npm run dev"
-alias ex="expressvpn"
-alias ec="expressvpn connect smart"
-alias ecg="expressvpn connect defr1"
-alias ed="expressvpn disconnect"
-alias ecu="expressvpn connect usny"
 alias nmr="sudo systemctl restart NetworkManager"
 alias gf="git fetch --all --prune"
 alias gmd="gm origin/develop"
@@ -241,6 +234,18 @@ alias kd="kill -9 $(ps aux --sort -rss  | awk '/dota/ {print $2}' | head -n1)"
 alias sm="/home/sharp/Software/macOS-Simple-KVM/basic.sh"
 alias pass-gen="node /home/sharp/dotfiles/zsh/passwordGenerator.js"
 
+# vpn aliases
+alias p="protonvpn"
+alias pc="protonvpn c us-free#3"
+alias ex="expressvpn"
+alias ec="expressvpn connect smart"
+alias ecg="expressvpn connect defr1"
+alias ed="expressvpn disconnect"
+alias ecu="expressvpn connect usny"
+alias nc="nordvpn connect"
+alias ncg="nordvpn connect germany"
+alias nd="nordvpn disconnect"
+
 export PATH=$PATH:$HOME/.cabal/bin
 export PATH=$HOME/.bin:$PATH
 export PATH=$PATH:$GOPATH/bin
@@ -250,6 +255,8 @@ export PATH=$PYENV_ROOT/bin:$PATH
 export MANPATH="${MANPATH-$(manpath)}:$NPM_PACKAGES/share/man"
 NPM_PACKAGES="${HOME}/.npm-global"
 export PATH="$PATH:$NPM_PACKAGES/bin"
+
+export PATH="$PATH:$HOME/.config/rofi/bin"
 
 
 eval "$(direnv hook zsh)"
