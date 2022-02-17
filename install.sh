@@ -31,3 +31,9 @@ ln -sf "$PWD/ssh/config" "$HOME/.ssh/config"
 #ln -sf "$PWD/dunst/dunstrc" "$HOME/.config/dunst/dunstrc"
 mkdir -p "$HOME/.gradle"
 ln -sf "$PWD/gradle/gradle.properties" "$HOME/.gradle/gradle.properties"
+
+# install rofi themes
+mkdir -p "$HOME/.rofi/themes"
+git clone --depth=1 https://github.com/adi1090x/rofi.git "$HOME/.rofi/themes" 
+cd "$HOME/.rofi/themes"
+sh setup.sh
