@@ -143,7 +143,7 @@ let g:indentLine_char = '▏'
 let g:indentLine_faster = 1
 " is used for code indented with tabs
 set list
-set list listchars=tab:❘⠀,extends:»,precedes:«,nbsp:×,eol:⏎
+set list listchars=tab:❘⠀,extends:»,precedes:«,nbsp:×
 
 " Indent
 set autoindent
@@ -399,7 +399,7 @@ augroup END
 
 
 " ledger shortcuts
-nnoremap <leader>ld :call ledger#transaction_date_set(line('.'), 'primary')<CR>		
+autocmd FileType ledger inoremap <leader>ld <C-O>:call ledger#transaction_date_set(line('.'), 'primary')<Cr><END>
 
 " apply LedgerAlignBuffer on save ledger file
 autocmd BufWritePost *.ledger :LedgerAlignBuffer
