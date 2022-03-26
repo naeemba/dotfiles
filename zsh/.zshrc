@@ -232,7 +232,7 @@ alias pi="ssh pi@192.168.0.104"
 alias kv="kill -9 $(ps aux --sort -rss  | awk '/vlc/ {print $2}' | head -n1)"
 alias kd="kill -9 $(ps aux --sort -rss  | awk '/dota/ {print $2}' | head -n1)"
 alias sm="/home/sharp/Software/macOS-Simple-KVM/basic.sh"
-alias pass-gen="node /home/sharp/dotfiles/zsh/passwordGenerator.js"
+alias pass-gen="node $PWD/passwordGenerator.js"
 
 # vpn aliases
 alias p="protonvpn"
@@ -245,6 +245,7 @@ alias ecu="expressvpn connect usny"
 alias nc="nordvpn connect"
 alias ncg="nordvpn connect germany"
 alias nd="nordvpn disconnect"
+alias configure-appleid="echo 0 | sudo tee /sys/module/hid_apple/parameters/fnmode"
 
 export PATH=$PATH:$HOME/.cabal/bin
 export PATH=$HOME/.bin:$PATH
