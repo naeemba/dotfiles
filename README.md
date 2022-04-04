@@ -34,3 +34,10 @@ Also numpad keys are not working there, using this link helped me:
 
 https://github.com/ohmyzsh/ohmyzsh/issues/3061#issuecomment-136554709
 
+### Suggested softwares:
+
+Peek: `simple screen recorder`
+https://github.com/phw/peek
+
+Flameshot `screenshot`
+https://github.com/flameshot-org/flameshot
