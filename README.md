@@ -2,9 +2,7 @@
 
 This project contains most of the setup files I have for my Arch Linux.
 
-## Issues
-
-### Graphic Card and Drivers
+## Graphic Card and Drivers (Lenovo X1 Extreme)
 
 I have a Thinkpad X1 extreme, and I had some major problems configuring the external monitor cause its hdmi port wired to the nvidia gpu directly.
 
@@ -23,6 +21,21 @@ https://wiki.archlinux.org/index.php/Lenovo_ThinkPad_X1_Extreme
 and the newer version which has some helpful instructions too:
 
 https://wiki.archlinux.org/index.php/Lenovo_ThinkPad_X1_Extreme_(Gen_2)
+
+## Keychron Keyboard (fix fn keys)
+
+Create the `/etc/modprob.d/hid_apple.conf` with this content:
+```
+options hid_apple fnmode=0
+```
+and then add it to the list of files:
+edit `mkinitcpio.conf` and add it to the `FILES`, then regenerate the configuration file:
+```
+mkinitcpio -P
+```
+Links:
+https://wiki.archlinux.org/title/mkinitcpio#BINARIES_and_FILES
+https://wiki.archlinux.org/title/Apple_Keyboard
 
 ### Oh My Zsh with vi-mode
 
