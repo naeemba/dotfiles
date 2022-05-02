@@ -54,3 +54,12 @@ https://github.com/phw/peek
 
 Flameshot (screenshot)
 https://github.com/flameshot-org/flameshot
+
+## Copy Paste on Neovim issue
+
+First check health in `neovim`
+```
+:checkhealth
+```
+If there is no clipboard tool, install `xclip` for example,
+https://wiki.archlinux.org/title/clipboard#Tools
