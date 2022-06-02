@@ -47,6 +47,20 @@ Also numpad keys are not working there, using this link helped me:
 
 https://github.com/ohmyzsh/ohmyzsh/issues/3061#issuecomment-136554709
 
+### Fan issue with manjaro and Predator Helios 300
+
+It is not the best, but it will work:
+
+https://github.com/nbfc-linux/nbfc-linux
+
+and we can go with this config:
+
+https://github.com/nbfc-linux/nbfc-linux/blob/main/share/nbfc/configs/Acer%20Predator%20PH315-53.json
+
+```
+sudo systemctl enable nbfc_service
+```
+
 ### Suggested softwares:
 
 Peek: (simple screen recorder)
