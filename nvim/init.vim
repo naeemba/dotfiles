@@ -54,11 +54,11 @@ Plug 'jparise/vim-graphql'
 Plug 'yardnsm/vim-import-cost', { 'do': 'npm install' }
 Plug 'mvpopuk/inspired-github.vim'
 Plug 'catppuccin/nvim', {'as': 'catppuccin'}
+Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
 call plug#end()
 
 set shell=/usr/bin/zsh
 
-" colorscheme catppuccin
 
 " CtrlpZ, fasd intergration
 let g:ctrlp_map = ''
@@ -90,12 +90,6 @@ set number relativenumber
 syntax enable
 set background=dark
 set termguicolors
-" let g:afterglow_blackout=1
-" let g:afterglow_italic_comments=1
-" let g:afterglow_inherit_background=1
-" let g:solarized_termtrans=1
-" colorscheme solarized8_flat
-" colorscheme afterglow
 set cursorline
 if exists('g:GuiLoaded')
   Guifont! Iosevka:h13
@@ -122,9 +116,11 @@ endif
 " Cd to current file directory
 command CDC cd %:p:h
 
-" vim-bufferline
- let g:bufferline_echo = 0
- let g:bufferline_show_bufnr = 0
+
+set termguicolors
+lua << EOF
+	require("bufferline").setup{}
+EOF
 
 " Color terminal curser
 " :hi! TermCursorNC ctermfg=15 guifg=#fdf6e3 ctermbg=14 guibg=#93a1a1 cterm=NONE gui=NONE
