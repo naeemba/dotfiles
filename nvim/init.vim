@@ -10,14 +10,17 @@ Plug 'tpope/vim-commentary'
 Plug 'airblade/vim-gitgutter'
 Plug 'Raimondi/delimitMate'
 Plug 'Yggdroot/indentLine'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'nvim-lualine/lualine.nvim'
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'kyazdani42/nvim-tree.lua'
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
 Plug 'edkolev/tmuxline.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'shumphrey/fugitive-gitlab.vim'
 Plug 'francoiscabrol/ranger.vim'
-Plug 'scrooloose/nerdtree'
-Plug 'PhilRunninger/nerdtree-visual-selection'
+" Plug 'scrooloose/nerdtree'
+" Plug 'PhilRunninger/nerdtree-visual-selection'
 Plug 'ryanoasis/vim-devicons'
 Plug 'tomasr/molokai'
 Plug 'iberianpig/tig-explorer.vim'
@@ -49,9 +52,13 @@ Plug 'chrisbra/SudoEdit.vim'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'jparise/vim-graphql'
 Plug 'yardnsm/vim-import-cost', { 'do': 'npm install' }
+Plug 'mvpopuk/inspired-github.vim'
+Plug 'catppuccin/nvim', {'as': 'catppuccin'}
 call plug#end()
 
 set shell=/usr/bin/zsh
+
+" colorscheme catppuccin
 
 " CtrlpZ, fasd intergration
 let g:ctrlp_map = ''
@@ -87,7 +94,7 @@ set termguicolors
 " let g:afterglow_italic_comments=1
 " let g:afterglow_inherit_background=1
 " let g:solarized_termtrans=1
-colorscheme solarized8_flat
+" colorscheme solarized8_flat
 " colorscheme afterglow
 set cursorline
 if exists('g:GuiLoaded')
@@ -205,7 +212,7 @@ autocmd  FileType fzf set laststatus=0 noshowmode noruler
 
 " File manager
 " nnoremap <leader>d :Ranger<CR>
-nnoremap <leader>d :NERDTreeFind<CR>
+nnoremap <leader>d :NvimTreeFindFile<CR>
 " let g:ranger_replace_netrw = 1
 
 " Split
@@ -293,23 +300,26 @@ inoremap <C-v> <Esc>l"+gPa
 vmap < <gv
 vmap > >gv
 
-" Airline
-" let g:airline_theme='minimalist'
-let g:airline_section_x=''
-let g:airline_section_y=''
-" let g:airline_section_warning=''
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#ignore_bufadd_pat =
-  \ 'gundo|undotree|vimfiler|tagbar|nerd_tree|startify|!'
-let g:airline_section_error = '%{airline#util#wrap(airline#extensions#coc#get_error(),0)}'
-let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_warning(),0)}'
+" " Airline
+" " let g:airline_theme='minimalist'
+" let g:airline_section_x=''
+" let g:airline_section_y=''
+" " let g:airline_section_warning=''
+" let g:airline#extensions#tabline#enabled = 1
+" let g:airline#extensions#tabline#ignore_bufadd_pat =
+"   \ 'gundo|undotree|vimfiler|tagbar|nerd_tree|startify|!'
+" let g:airline_section_error = '%{airline#util#wrap(airline#extensions#coc#get_error(),0)}'
+" let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_warning(),0)}'
 set noshowmode
 
 lua require'colorizer'.setup()
+" lualine config
+lua require('bubbles')
+lua require('nvim-tree-config')
 
 	" coc		
 "		
-let g:coc_global_extensions = ['coc-snippets', 'coc-yank', 'coc-flow', 'coc-eslint', 'coc-word'		
+let g:coc_global_extensions = ['coc-snippets', 'coc-yank', 'coc-eslint'
       \, 'coc-sh', 'coc-tsserver', 'coc-tabnine']		
 " Use tab for trigger completion with characters ahead and navigate.		
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.		
@@ -405,6 +415,9 @@ autocmd FileType ledger inoremap <leader>ld <C-O>:call ledger#transaction_date_s
 
 " apply LedgerAlignBuffer on save ledger file
 autocmd BufWritePost *.ledger :LedgerAlignBuffer
+
+" replace spaces with tabs for config files
+" autocmd BufWritePost *.json,*rc silent! %s/\(^\s*\)\@<=    /\t/g
 
 set timeoutlen=300
 

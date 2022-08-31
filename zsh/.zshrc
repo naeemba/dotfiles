@@ -57,12 +57,14 @@ if ! zgen saved; then
     zgen load zsh-users/zsh-autosuggestions
     zgen load changyuheng/zsh-interactive-cd
     zgen load marzocchi/zsh-notify
-    zgen load joel-porquet/zsh-dircolors-solarized
+    # zgen load joel-porquet/zsh-dircolors-solarized
     zgen load djui/alias-tips
     zgen load Tarrasch/zsh-bd
     zgen load larkery/zsh-histdb
-    zgen load romkatv/powerlevel10k powerlevel10k
+    # zgen load romkatv/powerlevel10k powerlevel10k
     # zgen load lukechilds/zsh-nvm
+	zgen load spaceship-prompt/spaceship-prompt spaceship
+
 
     # theme
     # zgen oh-my-zsh themes/agnoster
@@ -72,6 +74,22 @@ if ! zgen saved; then
 fi
 
 export FZF_BASE="/usr/bin/fzf"
+ZSH_THEME="spaceship"
+
+SPACESHIP_PROMPT_ORDER=(
+  time          # Time stamps section
+  user          # Username section
+  dir           # Current directory section
+  git           # Git section (git_branch + git_status)
+  exec_time     # Execution time
+  battery       # Battery level and status
+  vi_mode       # Vi-mode indicator
+  exit_code     # Exit code section
+  char          # Prompt character
+)
+
+SPACESHIP_PROMPT_FIRST_PREFIX_SHOW=true
+SPACESHIP_USER_SHOW=true
 
 zstyle :omz:plugins:ssh-agent identities work personal
 
@@ -233,6 +251,7 @@ alias kv="kill -9 $(ps aux --sort -rss  | awk '/vlc/ {print $2}' | head -n1)"
 alias kd="kill -9 $(ps aux --sort -rss  | awk '/dota/ {print $2}' | head -n1)"
 alias sm="/home/sharp/Software/macOS-Simple-KVM/basic.sh"
 alias pass-gen="node $PWD/passwordGenerator.js"
+alias chrome-no-security="google-chrome-stable --disable-web-security --user-data-dir=\"~/.chrome-data-dir\""
 
 # vpn aliases
 alias p="protonvpn"
@@ -268,3 +287,9 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/sharp/Software/google-cloud-sdk/path.zsh.inc' ]; then . '/home/sharp/Software/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/sharp/Software/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/sharp/Software/google-cloud-sdk/completion.zsh.inc'; fi
