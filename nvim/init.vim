@@ -6,21 +6,16 @@ Plug 'TaDaa/vimade'
 Plug 'mcchrish/nnn.vim'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'junegunn/fzf', { 'do': './install --all' } | Plug 'junegunn/fzf.vim'
-Plug 'tpope/vim-commentary'
 Plug 'airblade/vim-gitgutter'
 Plug 'Raimondi/delimitMate'
 Plug 'Yggdroot/indentLine'
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'kyazdani42/nvim-tree.lua'
-" Plug 'vim-airline/vim-airline'
-" Plug 'vim-airline/vim-airline-themes'
 Plug 'edkolev/tmuxline.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'shumphrey/fugitive-gitlab.vim'
 Plug 'francoiscabrol/ranger.vim'
-" Plug 'scrooloose/nerdtree'
-" Plug 'PhilRunninger/nerdtree-visual-selection'
 Plug 'ryanoasis/vim-devicons'
 Plug 'tomasr/molokai'
 Plug 'iberianpig/tig-explorer.vim'
@@ -53,12 +48,60 @@ Plug 'peitalin/vim-jsx-typescript'
 Plug 'jparise/vim-graphql'
 Plug 'yardnsm/vim-import-cost', { 'do': 'npm install' }
 Plug 'mvpopuk/inspired-github.vim'
-Plug 'catppuccin/nvim', {'as': 'catppuccin'}
 Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
+Plug 'phaazon/hop.nvim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'tpope/vim-commentary'
+Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 call plug#end()
 
 set shell=/usr/bin/zsh
 
+lua require'hop'.setup()
+lua << EOF
+	vim.keymap.set("n", "zl", "<cmd>HopLineStart<cr>", { noremap = true, silent = true })
+	vim.keymap.set("n", "zw", "<cmd>HopWord<cr>", { noremap = true, silent = true })
+
+require'nvim-treesitter.configs'.setup {
+  -- A list of parser names, or "all"
+  ensure_installed = { "lua", "javascript", "typescript", "tsx" },
+
+  -- Install parsers synchronously (only applied to `ensure_installed`)
+  sync_install = false,
+
+  -- Automatically install missing parsers when entering buffer
+  auto_install = true,
+
+  -- List of parsers to ignore installing (for "all")
+  ignore_install = {},
+
+  ---- If you need to change the installation directory of the parsers (see -> Advanced Setup)
+  -- parser_install_dir = "/some/path/to/store/parsers", -- Remember to run vim.opt.runtimepath:append("/some/path/to/store/parsers")!
+
+  highlight = {
+    -- `false` will disable the whole extension
+    enable = true,
+
+    -- NOTE: these are the names of the parsers and not the filetype. (for example if you want to
+    -- disable highlighting for the `tex` filetype, you need to include `latex` in this list as this is
+    -- the name of the parser)
+    -- list of language that will be disabled
+    disable = {},
+
+    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+    -- Using this option may slow down your editor, and you may see some duplicate highlights.
+    -- Instead of true it can also be a list of languages
+    additional_vim_regex_highlighting = false,
+  },
+}
+
+require'nvim-treesitter.configs'.setup {
+  context_commentstring = {
+    enable = true
+  }
+}
+EOF
 
 " CtrlpZ, fasd intergration
 let g:ctrlp_map = ''
@@ -319,11 +362,15 @@ let g:coc_global_extensions = ['coc-snippets', 'coc-yank', 'coc-eslint'
       \, 'coc-sh', 'coc-tsserver', 'coc-tabnine']		
 " Use tab for trigger completion with characters ahead and navigate.		
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.		
-inoremap <silent><expr> <TAB>		
-      \ pumvisible() ? "\<C-n>" :		
-      \ <SID>check_back_space() ? "\<TAB>" :		
-      \ coc#refresh()		
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"		
+inoremap <silent><expr> <Tab>
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
+
+" use <c-space>for trigger completion
+inoremap <silent><expr> <c-space> coc#refresh()
+
+inoremap <expr> <S-Tab> coc#pum#visible() ? coc#pum#prev(1) : "\<S-Tab>"
 function! s:check_back_space() abort		
   let col = col('.') - 1		
   return !col || getline('.')[col - 1]  =~# '\s'		
