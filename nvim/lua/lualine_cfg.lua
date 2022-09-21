@@ -33,6 +33,7 @@ local bubbles_theme = {
 
 require('lualine').setup {
   options = {
+	show_filename_only = false,
     theme = bubbles_theme,
     component_separators = '|',
     section_separators = { left = '', right = '' },
@@ -41,7 +42,7 @@ require('lualine').setup {
     lualine_a = {
       { 'mode', separator = { left = '' }, right_padding = 2 },
     },
-    lualine_b = { 'filename', 'branch' },
+    lualine_b = { { 'filename', file_status = true, path = 1 }, 'branch', 'g:coc_status' },
     lualine_c = { 'fileformat' },
     lualine_x = {},
     lualine_y = { 'filetype', 'progress' },
