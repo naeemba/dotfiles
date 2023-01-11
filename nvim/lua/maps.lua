@@ -68,3 +68,11 @@ keymap.set("t", "<A-q>", "<C-\\><C-n>:bdelete!<CR>", { silent = true, noremap = 
 keymap.set("t", "<A-n>", "<C-\\><C-n>:terminal<CR>i", { silent = true, noremap = true })
 
 keymap.set("n", "<leader>gs", [[<Cmd>:Tig<CR>]], { noremap = true })
+
+-- Move lines up or down
+keymap.set("n", "<A-j>", ":m .+1<CR>==", { silent = true, noremap = true })
+keymap.set("n", "<A-k>", ":m .-2<CR>==", { silent = true, noremap = true })
+keymap.set("i", "<A-j>", "<Esc>:m .+1<CR>==gi", { silent = true, noremap = true })
+keymap.set("i", "<A-k>", "<Esc>:m .-2<CR>==gi", { silent = true, noremap = true })
+keymap.set("v", "<A-j>", ":m .+1<CR>==gv", { silent = true, noremap = true })
+keymap.set("v", "<A-k>", ":m .-2<CR>==gv", { silent = true, noremap = true })
