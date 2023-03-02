@@ -13,6 +13,7 @@ local fb_actions = require("telescope").extensions.file_browser.actions
 
 telescope.setup({
 	defaults = {
+		file_ignore_patterns = { "docs/*" },
 		mappings = {
 			i = {
 				["<C-n>"] = actions.cycle_history_next,
@@ -140,10 +141,10 @@ vim.keymap.set("n", "sf", function()
 end)
 
 vim.keymap.set("n", "<leader>p", function()
-	builtin.find_files()
+	builtin.find_files({ hidden = true })
 end, { noremap = true, silent = true })
 vim.keymap.set("n", "<C-p>", function()
-	builtin.find_files()
+	builtin.find_files({ hidden = true })
 end, { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>/", function()
 	builtin.live_grep()

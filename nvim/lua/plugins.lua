@@ -58,6 +58,7 @@ packer.startup(function(use)
 	use("TaDaa/vimade")
 	use("lukas-reineke/indent-blankline.nvim")
 	use("ledger/vim-ledger")
+	use("gpanders/editorconfig.nvim")
 end)
 
 require("which-key").setup()

@@ -255,7 +255,7 @@ alias pass-gen="node $PWD/passwordGenerator.js"
 alias chrome-no-security="google-chrome-stable --disable-web-security --user-data-dir=\"~/.chrome-data-dir\""
 
 # vpn aliases
-alias p="protonvpn"
+alias p="proxychains"
 alias pc="protonvpn c us-free#3"
 alias ex="expressvpn"
 alias ec="expressvpn connect smart"
@@ -265,6 +265,8 @@ alias ecu="expressvpn connect usny"
 alias nc="nordvpn connect"
 alias ncg="nordvpn connect germany"
 alias nd="nordvpn disconnect"
+alias td="QTWEBENGINE_DISABLE_SANDBOX=1 proxychains ~/timedoctor2/timedoctor2"
+alias slack-gui="slack --proxy-server=192.168.100.199:8118 --gui"
 alias configure-appleid="echo 0 | sudo tee /sys/module/hid_apple/parameters/fnmode"
 
 export PATH=$PATH:$HOME/.cabal/bin
