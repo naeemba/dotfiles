@@ -1,3 +1,46 @@
+window:
+  padding:
+    x: 2
+    y: 2
+  dynamic_padding: true
+  decoration: buttonless
+  dynamic_title: true
+  startup_mode: Windowed
+  opacity: 0.85
+scrolling:
+  history: 10000
+  multiplier: 3
+font:
+  # normal:
+  #   family: SauceCodePro NF
+  #   style: Medium
+  # bold:
+  #   family: SauceCodePro NF
+  #   style: Bold
+  # italic:
+  #   family: SauceCodePro NF
+  #   style: Bold Italic
+  size: 12.0
+  offset:
+    x: 0
+    y: 0
+  glyph_offset:
+    x: 0
+    y: 0
+  draw_bold_text_with_bright_colors: true
+mouse:
+  hide_when_typing: true
+  save_to_clipboard: true
+cursor:
+  style: Block
+  unfocused_hollow: true
+
+live_config_reload: true
+
+# window_opacity: 0.1
+
+shell:
+ program: /bin/zsh
 # Configuration for Alacritty, the GPU enhanced terminal emulator.
 
 # Import additional configuration files
@@ -23,7 +66,7 @@
   # available, otherwise `xterm-256color` is used.
   #TERM: alacritty
 
-window:
+# window:
   # Window dimensions (changes require restart)
   #
   # Number of lines/columns (not pixels) in the terminal. The number of columns
@@ -67,7 +110,7 @@ window:
   #
   # Window opacity as a floating point number from `0.0` to `1.0`.
   # The value `0.0` is completely transparent and `1.0` is opaque.
- opacity: 0.85
+ # opacity: 0.85
 
   # Startup Mode (changes require restart)
   #
@@ -433,8 +476,6 @@ window:
 #   - (macOS) /bin/bash --login
 #   - (Linux/BSD) user login shell
 #   - (Windows) powershell
-shell:
- program: /bin/zsh
 #  args:
 #    - --login
 

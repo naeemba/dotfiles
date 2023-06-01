@@ -46,3 +46,6 @@ vim.opt.expandtab = false
 vim.opt.softtabstop = 0
 vim.opt.smarttab = true
 vim.opt.relativenumber = true
+
+vim.api.nvim_set_keymap("n", "<C-c>", '"+y', { noremap = true })
+vim.api.nvim_set_keymap("v", "<C-c>", '"+y', { noremap = true })

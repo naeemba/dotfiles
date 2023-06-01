@@ -229,6 +229,11 @@ _G.packer_plugins = {
     path = "/home/sharp/.local/share/nvim/site/pack/packer/start/tig-explorer.vim",
     url = "https://github.com/iberianpig/tig-explorer.vim"
   },
+  ["tokyonight.nvim"] = {
+    loaded = true,
+    path = "/home/sharp/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
+    url = "https://github.com/folke/tokyonight.nvim"
+  },
   ["vim-commentary"] = {
     loaded = true,
     path = "/home/sharp/.local/share/nvim/site/pack/packer/start/vim-commentary",

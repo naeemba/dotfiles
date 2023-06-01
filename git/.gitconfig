@@ -1,5 +1,5 @@
-[http]
-#  proxy = socks5://127.0.0.1:9050
+; [http]
+;     proxy = http://192.168.100.199:8142
 [user]
 	name = Naeem Baghi
 	email = baghinaeem@gmail.com
@@ -12,3 +12,6 @@
 
 [includeIf "gitdir:~/Workspace/work/"]
     path = ~/.work/.gitconfig
+
+[push]
+	autoSetupRemote = true

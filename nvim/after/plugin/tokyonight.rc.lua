@@ -1,7 +1,22 @@
-vim.g.tokyonight_style = "night"
-vim.g.tokyonight_italic_functions = true
-vim.g.tokyonight_transparent = true
-vim.g.tokyonight_transparent_sidebar = true
+require("tokyonight").setup({
+	style = "night",
+	light_style = "day",
+	transparent = true,
+	terminal_colors = true,
+	styles = {
+		comments = { italic = true },
+		keywords = { italic = true },
+		functions = { italic = true },
+		variables = {},
+		sidebars = "transparent",
+		floats = "transparent",
+	},
+})
+
+-- vim.g.tokyonight_style = "night"
+-- vim.g.tokyonight_italic_functions = true
+-- vim.g.tokyonight_transparent = true
+-- vim.g.tokyonight_transparent_sidebar = true
 
 --[[
 vim.g.tokyonight_colors = {
@@ -24,6 +39,4 @@ vim.g.tokyonight_colors = {
   purple = "#6c71c4",
 }
 ]]
-
-
---vim.cmd[[colorscheme tokyonight]]
+vim.cmd([[colorscheme tokyonight]])

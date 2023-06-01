@@ -1,11 +1,11 @@
 local status_ok, nvim_tree = pcall(require, "nvim-tree")
 if not status_ok then
-  return
+	return
 end
 
 local config_status_ok, nvim_tree_config = pcall(require, "nvim-tree.config")
 if not config_status_ok then
-  return
+	return
 end
 
 -- local tree_cb = nvim_tree_config.nvim_tree_callback
@@ -13,24 +13,19 @@ end
 vim.g.loaded = 1
 vim.g.loaded_netrwPlugin = 1
 
-vim.api.nvim_set_keymap('n', '<leader>d', [[<Cmd>:NvimTreeFindFile<CR>]], { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>d", [[<Cmd>:NvimTreeFindFile<CR>]], { noremap = true, silent = true })
 
 nvim_tree.setup({
-  sort_by = "case_sensitive",
-  view = {
-    adaptive_size = true,
-    mappings = {
-      list = {
-        { key = "u", action = "dir_up" },
-      },
-    },
-  },
-  renderer = {
-    group_empty = true,
-  },
-  filters = {
-    dotfiles = true,
-  },
+	sort_by = "case_sensitive",
+	view = {
+		adaptive_size = true,
+	},
+	renderer = {
+		group_empty = true,
+	},
+	filters = {
+		dotfiles = true,
+	},
 })
 -- {
 -- renderer = {

@@ -11,6 +11,6 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 })
 
 vim.api.nvim_create_autocmd("BufWritePost", {
-	pattern = "*.ts,*.tsx,*.js,*.jsx",
+	pattern = "*.ts,*.tsx",
 	command = "EslintFixAll",
 })

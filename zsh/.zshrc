@@ -5,6 +5,8 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+fpath=(~/.zsh/completion $fpath)
+
 # load zgen  -*- mode: sh; -*-
 
 export LC_ALL=en_US.UTF-8
@@ -12,12 +14,15 @@ export LANG=en_US.UTF-8
 
 # These lines needs to be before loading oh-my-zsh
 source "${HOME}/.zgen/zgen.zsh"
+/usr/bin/xcape -e 'Caps_Lock=Escape' -t 50
 
 # check if there's no init script
 
 HISTFILE=~/.zsh_history
 HISTSIZE=999999999
 SAVEHIST=$HISTSIZE
+PROXY_PORT=10820
+PROXY_SERVER=socks5://localhost:$PROXY_PORT
 
 if ! zgen saved; then
     echo "Creating a zgen save"
@@ -247,7 +252,7 @@ alias gmd="gm origin/develop"
 alias gpsu="gp --set-upstream origin"
 alias grob="git branch --merged master | grep -v '^[ *]*master$' | xargs git branch -d"
 alias pr="pulseaudio -k ; pulseaudio -D"
-alias pi="ssh pi@192.168.0.104"
+alias pi="ssh pi@192.168.100.199"
 alias kv="kill -9 $(ps aux --sort -rss  | awk '/vlc/ {print $2}' | head -n1)"
 alias kd="kill -9 $(ps aux --sort -rss  | awk '/dota/ {print $2}' | head -n1)"
 alias sm="/home/sharp/Software/macOS-Simple-KVM/basic.sh"
@@ -255,7 +260,7 @@ alias pass-gen="node $PWD/passwordGenerator.js"
 alias chrome-no-security="google-chrome-stable --disable-web-security --user-data-dir=\"~/.chrome-data-dir\""
 
 # vpn aliases
-alias p="proxychains"
+alias p="PROXYCHAINS_SOCKS=$PROXY_PORT proxychains"
 alias pc="protonvpn c us-free#3"
 alias ex="expressvpn"
 alias ec="expressvpn connect smart"
@@ -265,9 +270,15 @@ alias ecu="expressvpn connect usny"
 alias nc="nordvpn connect"
 alias ncg="nordvpn connect germany"
 alias nd="nordvpn disconnect"
-alias td="QTWEBENGINE_DISABLE_SANDBOX=1 proxychains ~/timedoctor2/timedoctor2"
-alias slack-gui="slack --proxy-server=192.168.100.199:8118 --gui"
+alias td="QTWEBENGINE_DISABLE_SANDBOX=1 PROXYCHAINS_SOCKS=$PROXY_PORT proxychains ~/timedoctor2/timedoctor2"
+alias slack-gui="slack --proxy-server='$PROXY_SERVER' --gui"
 alias configure-appleid="echo 0 | sudo tee /sys/module/hid_apple/parameters/fnmode"
+alias y="p yarn"
+alias proxy="http_proxy=$PROXY_SERVER"
+alias cat="bat"
+alias ls="lsd"
+alias bat="cat"
+alias lsd="ls"
 
 export PATH=$PATH:$HOME/.cabal/bin
 export PATH=$HOME/.bin:$PATH
@@ -277,6 +288,8 @@ export PATH=$PATH:$JAVA_HOME/bin
 export PATH=$PYENV_ROOT/bin:$PATH
 export MANPATH="${MANPATH-$(manpath)}:$NPM_PACKAGES/share/man"
 NPM_PACKAGES="${HOME}/.npm-global"
+# this uses bat (called batcat on debian) to colorize man pages
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export PATH="$PATH:$NPM_PACKAGES/bin"
 
 export PATH="$PATH:$HOME/.config/rofi/bin"
@@ -295,4 +308,4 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 if [ -f '/home/sharp/Software/google-cloud-sdk/path.zsh.inc' ]; then . '/home/sharp/Software/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/home/sharp/Software/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/sharp/Software/google-cloud-sdk/completion.zsh.inc'; fi
+# if [ -f '/home/sharp/Software/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/sharp/Software/google-cloud-sdk/completion.zsh.inc'; fi

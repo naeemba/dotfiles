@@ -34,6 +34,8 @@ ln -sf "$PWD/ssh/config" "$HOME/.ssh/config"
 mkdir -p "$HOME/.gradle"
 ln -sf "$PWD/gradle/gradle.properties" "$HOME/.gradle/gradle.properties"
 
+sh install_apps.sh
+
 # install rofi themes
 mkdir -p "$HOME/.rofi/themes"
 git clone --depth=1 https://github.com/adi1090x/rofi.git "$HOME/.rofi/themes" 
