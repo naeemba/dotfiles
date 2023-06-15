@@ -41,3 +41,6 @@ mkdir -p "$HOME/.rofi/themes"
 git clone --depth=1 https://github.com/adi1090x/rofi.git "$HOME/.rofi/themes" 
 cd "$HOME/.rofi/themes"
 sh setup.sh
+
+rm -rf "$HOME/.config/paru"
+ln -sf "$PWD/paru" "$HOME/.config/paru"

@@ -260,7 +260,7 @@ alias pass-gen="node $PWD/passwordGenerator.js"
 alias chrome-no-security="google-chrome-stable --disable-web-security --user-data-dir=\"~/.chrome-data-dir\""
 
 # vpn aliases
-alias p="PROXYCHAINS_SOCKS=$PROXY_PORT proxychains"
+alias p="PROXYCHAINS_SOCKS=$PROXY_PORT proxychains -q"
 alias pc="protonvpn c us-free#3"
 alias ex="expressvpn"
 alias ec="expressvpn connect smart"
