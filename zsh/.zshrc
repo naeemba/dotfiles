@@ -21,7 +21,7 @@ source "${HOME}/.zgen/zgen.zsh"
 HISTFILE=~/.zsh_history
 HISTSIZE=999999999
 SAVEHIST=$HISTSIZE
-PROXY_PORT=10820
+PROXY_PORT=2080
 PROXY_SERVER=socks5://localhost:$PROXY_PORT
 
 if ! zgen saved; then
