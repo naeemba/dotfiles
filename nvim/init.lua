@@ -1,3 +1,4 @@
+-- require("theme")
 require("base")
 require("highlights")
 require("maps")

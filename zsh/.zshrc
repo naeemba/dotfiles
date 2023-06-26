@@ -21,7 +21,7 @@ source "${HOME}/.zgen/zgen.zsh"
 HISTFILE=~/.zsh_history
 HISTSIZE=999999999
 SAVEHIST=$HISTSIZE
-PROXY_PORT=2080
+PROXY_PORT=10820
 PROXY_SERVER=socks5://localhost:$PROXY_PORT
 
 if ! zgen saved; then
@@ -261,6 +261,7 @@ alias chrome-no-security="google-chrome-stable --disable-web-security --user-dat
 
 # vpn aliases
 alias p="PROXYCHAINS_SOCKS=$PROXY_PORT proxychains -q"
+alias pnl="proxychains -f /etc/proxychains-nl.conf -q"
 alias pc="protonvpn c us-free#3"
 alias ex="expressvpn"
 alias ec="expressvpn connect smart"
@@ -271,10 +272,11 @@ alias nc="nordvpn connect"
 alias ncg="nordvpn connect germany"
 alias nd="nordvpn disconnect"
 alias td="QTWEBENGINE_DISABLE_SANDBOX=1 PROXYCHAINS_SOCKS=$PROXY_PORT proxychains ~/timedoctor2/timedoctor2"
+alias td2="~/timedoctor2/timedoctor2"
 alias slack-gui="slack --proxy-server='$PROXY_SERVER' --gui"
 alias configure-appleid="echo 0 | sudo tee /sys/module/hid_apple/parameters/fnmode"
-alias y="p yarn"
-alias proxy="http_proxy=$PROXY_SERVER"
+alias proxy="http_proxy=$PROXY_SERVER https_proxy=$PROXY_SERVER"
+alias y="proxy yarn"
 alias cat="bat"
 alias ls="lsd"
 alias bat="cat"
@@ -293,6 +295,7 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export PATH="$PATH:$NPM_PACKAGES/bin"
 
 export PATH="$PATH:$HOME/.config/rofi/bin"
+export PATH="${PATH}:${HOME}/.krew/bin"
 
 
 eval "$(direnv hook zsh)"
