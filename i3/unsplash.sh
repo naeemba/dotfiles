@@ -2,7 +2,6 @@
 # unspla.sh - Set your i3 background image to a random unsplash image
 # Created by Collin McKinley (collinm.xyz)
 
-
 # Settings
 RUN_AS_DAEMON=0                           # Run unspla.sh as a daemon if 1, if 0 unspla.sh will set the image then exit
 BACKGROUND_RES="5560x1920"                # Set the size of unsplash images to pull
@@ -21,15 +20,16 @@ UPDATE_INTERVAL=86400                     # How long to wait before changing the
 
 
 mkdir -p /tmp/unsplash
+MONITORS=$(polybar --list-monitors | cut -d":" -f1)
 
-# if type "xrandr"; then
-#   for monitor in $(polybar --list-monitors | cut -d":" -f1); do
-# 	  RESOLUTION=$(polybar --list-monitors | grep $monitor | awk '{print $2}' | cut -f1 -d"+")
-# 	  IMAGE="/tmp/unsplash/$monitor$IMAGE_FORMAT"
-# 	  UNSPLASH="https://source.unsplash.com/random/$RESOLUTION/?$PARAMETERS"
-# 	  proxychains -q wget --quiet $UNSPLASH_URL -4 -O $IMAGE
-# 	  $BACKGROUND_COMMAND $IMAGE
-#   done
+if type "xrandr"; then
+  for monitor in $(polybar --list-monitors | cut -d":" -f1); do 
+	  RESOLUTION=$(polybar --list-monitors | grep $monitor | awk '{print $2}' | cut -f1 -d"+")
+	  IMAGE="/tmp/unsplash/$monitor$IMAGE_FORMAT"
+	  UNSPLASH="https://source.unsplash.com/random/${RESOLUTION}/?${PARAMETERS}"
+	  proxychains -q wget --quiet $UNSPLASH_URL -4 -O $IMAGE
+	  # $BACKGROUND_COMMAND $IMAGE
+  done
 # else
 # if [ $RUN_AS_DAEMON = 1 ]
 # then
@@ -40,7 +40,9 @@ mkdir -p /tmp/unsplash
 #     $BACKGROUND_COMMAND $IMAGE_SAVE_DIR
 #     sleep $UPDATE_INTERVAL
 #   done &
-# else
+else
     proxychains -q wget --quiet $UNSPLASH_URL -4 -O $IMAGE_SAVE_DIR
     $BACKGROUND_COMMAND $IMAGE_SAVE_DIR
-# fi
+fi
+
+feh --bg-fill --no-fehbg /tmp/unsplash/HDMI-1-0.jpg /tmp/unsplash/eDP-1.jpg /tmp/unsplash/DP-1-2.jpg
