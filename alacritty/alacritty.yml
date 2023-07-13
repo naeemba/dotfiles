@@ -6,7 +6,7 @@ window:
   decoration: buttonless
   dynamic_title: true
   startup_mode: Windowed
-  opacity: 0.85
+  opacity: 0.9
 scrolling:
   history: 10000
   multiplier: 3

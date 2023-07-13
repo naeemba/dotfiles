@@ -13,6 +13,10 @@ local fb_actions = require("telescope").extensions.file_browser.actions
 
 telescope.setup({
 	defaults = {
+		layout_strategy = "vertical",
+		layout_config = {
+			width = 0.9,
+		},
 		file_ignore_patterns = { "docs/*" },
 		mappings = {
 			i = {
@@ -134,7 +138,7 @@ vim.keymap.set("n", "sf", function()
 		respect_gitignore = true,
 		hidden = true,
 		grouped = true,
-		previewer = false,
+		previewer = true,
 		initial_mode = "normal",
 		layout_config = { height = 40 },
 	})
@@ -147,7 +151,7 @@ vim.keymap.set("n", "<C-p>", function()
 	builtin.find_files({ hidden = true, no_ignore = true })
 end, { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>/", function()
-	builtin.live_grep()
+	builtin.live_grep({})
 end, { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>fb", function()
 	builtin.buffers()
