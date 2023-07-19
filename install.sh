@@ -29,7 +29,7 @@ ln -sf "$PWD/alacritty/alacritty.yml" "$HOME/.config/alacritty/alacritty.yml"
 mkdir -p "$HOME/.ssh"
 ln -sf "$PWD/ssh/config" "$HOME/.ssh/config"
 #ln -sf "$PWD/redshift/redshift.conf" "$HOME/.config/redshift/redshift.conf"
-#ln -sf "$PWD/dunst/dunstrc" "$HOME/.config/dunst/dunstrc"
+ln -sf "$PWD/dunst/dunstrc" "$HOME/.config/dunst/dunstrc"
 mkdir -p "$HOME/.gradle"
 ln -sf "$PWD/gradle/gradle.properties" "$HOME/.gradle/gradle.properties"
 

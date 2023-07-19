@@ -23,6 +23,8 @@ HISTSIZE=999999999
 SAVEHIST=$HISTSIZE
 PROXY_PORT=10820
 PROXY_SERVER=socks5://localhost:$PROXY_PORT
+PROXY_NL_PORT=10818
+PROXY_NL_SERVER=socks5://localhost:$PROXY_PORT
 
 if ! zgen saved; then
     echo "Creating a zgen save"
@@ -275,8 +277,11 @@ alias td="QTWEBENGINE_DISABLE_SANDBOX=1 PROXYCHAINS_SOCKS=$PROXY_PORT proxychain
 alias td2="~/timedoctor2/timedoctor2"
 alias slack-gui="slack --proxy-server='$PROXY_SERVER' --gui"
 alias configure-appleid="echo 0 | sudo tee /sys/module/hid_apple/parameters/fnmode"
+alias battery-status="watch -n0 cat /sys/class/power_supply/BAT1/capacity"
 alias proxy="http_proxy=$PROXY_SERVER https_proxy=$PROXY_SERVER"
+alias proxynl="http_proxy=$PROXY_NL_SERVER https_proxy=$PROXY_NL_SERVER"
 alias y="proxy yarn"
+alias ynl="proxynl yarn"
 alias cat="bat"
 alias ls="lsd"
 alias bat="cat"
@@ -296,6 +301,8 @@ export PATH="$PATH:$NPM_PACKAGES/bin"
 
 export PATH="$PATH:$HOME/.config/rofi/bin"
 export PATH="${PATH}:${HOME}/.krew/bin"
+export PATH="$PATH:$HOME/.local/share/pnpm"
+export PNPM_HOME="$HOME/.local/share/pnpm"
 
 
 eval "$(direnv hook zsh)"

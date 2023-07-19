@@ -77,3 +77,7 @@ First check health in `neovim`
 ```
 If there is no clipboard tool, install `xclip` for example,
 https://wiki.archlinux.org/title/clipboard#Tools
+
+## Inspired by
+
+[VishnuSanal](https://github.com/VishnuSanal/dotfiles/tree/main)

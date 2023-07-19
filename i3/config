@@ -148,11 +148,14 @@ bindsym $mod+F6 move container to workspace number $ws6
 bindsym $mod+F7 move container to workspace number $ws7
 bindsym $mod+F8 move container to workspace number $ws8
 
-# xprop
-assign [class="Skype"] $ws4
-assign [class="Microsoft Teams - Preview"] $ws4
-assign [class="Signal"] $ws4
-assign [class="Spotify"] $ws7
+# get the class of app by running `xprop` and clicking on app
+# assign [class="Skype"] $ws4
+# assign [class="Microsoft Teams - Preview"] $ws4
+# assign [class="Signal"] $ws4
+assign [class="Spotify"] $ws4
+assign [class="Slack"] $ws4
+assign [class="KeePassXC"] $ws4
+assign [class="timedoctor2"] $ws0
 
 bindsym $mod+shift+p exec firefox --private-window
 for_window [class="Firefox" title="Private Browsing"] move to workspace 5
