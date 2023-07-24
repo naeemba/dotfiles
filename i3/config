@@ -152,9 +152,9 @@ bindsym $mod+F8 move container to workspace number $ws8
 # assign [class="Skype"] $ws4
 # assign [class="Microsoft Teams - Preview"] $ws4
 # assign [class="Signal"] $ws4
-assign [class="Spotify"] $ws4
-assign [class="Slack"] $ws4
-assign [class="KeePassXC"] $ws4
+# assign [class="Spotify"] $ws4
+# assign [class="Slack"] $ws4
+# assign [class="KeePassXC"] $ws4
 # assign [class="timedoctor2"] $ws0
 
 bindsym $mod+shift+p exec firefox --private-window
