@@ -3,6 +3,7 @@ set $mod Mod4
 
 # network manager applet
 exec --no-startup-id nm-applet
+exec --no-startup-id blueman
 
 # start a terminal
 bindsym $mod+Return exec alacritty

@@ -11,6 +11,7 @@ ln -sf "$PWD/git/.work-gitconfig" "$HOME/.work/.gitconfig"
 
 git clone https://github.com/tarjoilija/zgen.git "${HOME}/.zgen"
 ln -sf "$PWD/zsh/.zshrc" "$HOME/.zshrc"
+ln -sf "$PWD/zsh/passwordGenerator.js" "$HOME/pass-gen.js"
 
 ln -sf "$PWD/tig/.tigrc" "$HOME/.tigrc"
 

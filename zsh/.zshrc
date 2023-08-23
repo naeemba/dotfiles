@@ -23,7 +23,7 @@ HISTSIZE=999999999
 SAVEHIST=$HISTSIZE
 PROXY_PORT=10820
 PROXY_SERVER=socks5://localhost:$PROXY_PORT
-PROXY_NL_PORT=10818
+PROXY_NL_PORT=10822
 PROXY_NL_SERVER=socks5://localhost:$PROXY_PORT
 
 if ! zgen saved; then
@@ -258,7 +258,7 @@ alias pi="ssh pi@192.168.100.199"
 alias kv="kill -9 $(ps aux --sort -rss  | awk '/vlc/ {print $2}' | head -n1)"
 alias kd="kill -9 $(ps aux --sort -rss  | awk '/dota/ {print $2}' | head -n1)"
 alias sm="/home/sharp/Software/macOS-Simple-KVM/basic.sh"
-alias pass-gen="node $PWD/passwordGenerator.js"
+alias pass-gen="node $HOME/pass-gen.js | tee /dev/tty | xclip -selection clipboard"
 alias chrome-no-security="google-chrome-stable --disable-web-security --user-data-dir=\"~/.chrome-data-dir\""
 
 # vpn aliases
