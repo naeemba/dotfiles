@@ -5,12 +5,12 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
-vim.api.nvim_create_autocmd("BufWritePost", {
+vim.api.nvim_create_autocmd("BufWritePre", {
 	pattern = "*.ledger",
 	command = "LedgerAlignBuffer",
 })
 
-vim.api.nvim_create_autocmd("BufWritePost", {
-	pattern = "*.ts,*.tsx",
+vim.api.nvim_create_autocmd("BufWritePre", {
+	pattern = "*.ts,*.tsx,*.js,*.jsx",
 	command = "EslintFixAll",
 })
