@@ -1,3 +1,5 @@
+# to find a keycode use xorg-xev, run `xev` in terminal and press the key, it
+# will show details about the pressed key, use the keycode here
 # use super for mod
 set $mod Mod4
 
@@ -41,7 +43,8 @@ bindsym $mod+p exec flameshot gui
 # start dmenu (a program launcher)
 # bindsym $mod+d exec --no-startup-id dmenu_run
 # A more modern dmenu replacement is rofi:
-bindcode $mod+40 exec rofi -show drun -config "~/.config/rofi/rofi"
+bindcode $mod+40 exec rofi -show combi -combi-modi window#drun -config "~/.config/rofi/config.rasi"
+bindcode $mod+24 exec rofi -show calc -config "~/.config/rofi/config.rasi"
 # There also is i3-dmenu-desktop which only displays applications shipping a
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
@@ -166,7 +169,8 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+# bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "rofi -show p -modi p:rofi-power-menu"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -235,6 +239,7 @@ gaps outer 0
 gaps bottom 30
 gaps top 30
 
+# toggle gaps
 bindsym $mod+Shift+d gaps inner all set 0; gaps outer all set 0
 bindsym $mod+Shift+t gaps inner all set 15; gaps outer all set 5; gaps bottom all set 30; gaps top all set 30;
 # window colors border                background          text                  indicator             child border client.focused            $active-border-color  $bg-color           $text-color           $active-border-color  $active-border-color client.unfocused          $inactive-bg-color    $inactive-bg-color  $inactive-text-color  client.focused_inactive   $inactive-bg-color    $inactive-bg-color  $inactive-text-color 
