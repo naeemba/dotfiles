@@ -4,8 +4,9 @@
 set $mod Mod4
 
 # network manager applet
-exec --no-startup-id nm-applet
-exec --no-startup-id blueman
+exec --no-startup-id nm-applet &
+exec --no-startup-id blueman-applet &
+exec --no-startup-id pasystray &
 
 # start a terminal
 bindsym $mod+Return exec alacritty
@@ -95,6 +96,11 @@ bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
+
+# for mostly used application, move it on the current window with scratchpad
+
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+Shift+plus scratchpad show
 
 # focus the child container
 # bindsym $mod+d focus child
@@ -256,7 +262,7 @@ exec_always setxkbmap -layout us -option ''
 bindsym $mod+Tab exec --no-startup-id (setxkbmap -query | grep -q "layout:\s\+us") && setxkbmap ir || setxkbmap us
 
 # transparent background settings
-exec_always --no-startup-id picom
+exec --no-startup-id picom
 
 # keyring for chrome
 exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=secrets
