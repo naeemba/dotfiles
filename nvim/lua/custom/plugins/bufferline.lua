@@ -1,4 +1,7 @@
-require('bufferline').setup{
+local status, bufferline = pcall(require, "bufferline")
+if (not status) then return end
+
+bufferline.setup{
   options = {
     separator_style = 'slant',
     show_buffer_close_icons = false,

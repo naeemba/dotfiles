@@ -1,6 +1,8 @@
 rm -rf "$HOME/.config/nvim"
 ln -sf "$PWD/nvim" "$HOME/.config/nvim"
 
+
+
 # Install vim plug
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -24,7 +26,7 @@ ln -sf "$PWD/picom/picom.conf" "$HOME/.config/picom/picom.conf"
 ln -sf "$PWD/chrome/chrome-flags.conf" "$HOME/.config/chrome-flags.conf"
 ln -sf "$PWD/chrome/chromium-flags.conf" "$HOME/.config/chromium-flags.conf"
 mkdir -p "$HOME/.config/rofi"
-ln -sf "$PWD/rofi/rofi" "$HOME/.config/rofi/rofi"
+ln -sf "$PWD/rofi" "$HOME/.config/rofi"
 mkdir -p "$HOME/.config/alacritty"
 ln -sf "$PWD/alacritty/alacritty.yml" "$HOME/.config/alacritty/alacritty.yml"
 mkdir -p "$HOME/.ssh"
@@ -33,6 +35,7 @@ ln -sf "$PWD/ssh/config" "$HOME/.ssh/config"
 ln -sf "$PWD/dunst/dunstrc" "$HOME/.config/dunst/dunstrc"
 mkdir -p "$HOME/.gradle"
 ln -sf "$PWD/gradle/gradle.properties" "$HOME/.gradle/gradle.properties"
+ln -sf "$PWD/palletes" "$HOME/.config/palletes"
 
 sh install_apps.sh
 

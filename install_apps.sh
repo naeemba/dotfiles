@@ -1,1 +1,1 @@
-pacin lsd bat
+pacin lsd bat qt5ct
