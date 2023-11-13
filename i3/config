@@ -1,9 +1,12 @@
+# to find a keycode use xorg-xev, run `xev` in terminal and press the key, it
+# will show details about the pressed key, use the keycode here
 # use super for mod
 set $mod Mod4
 
 # network manager applet
-exec --no-startup-id nm-applet
-exec --no-startup-id blueman
+exec --no-startup-id nm-applet &
+exec --no-startup-id blueman-applet &
+exec --no-startup-id pasystray &
 
 # start a terminal
 bindsym $mod+Return exec alacritty
@@ -41,7 +44,8 @@ bindsym $mod+p exec flameshot gui
 # start dmenu (a program launcher)
 # bindsym $mod+d exec --no-startup-id dmenu_run
 # A more modern dmenu replacement is rofi:
-bindcode $mod+40 exec rofi -show drun -config "~/.config/rofi/rofi"
+bindcode $mod+40 exec rofi -show combi -combi-modi window#drun -config "~/.config/rofi/config.rasi"
+bindcode $mod+24 exec rofi -show calc -config "~/.config/rofi/config.rasi"
 # There also is i3-dmenu-desktop which only displays applications shipping a
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
@@ -86,12 +90,28 @@ bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
+for_window [window_role="About"] floating enable
+for_window [window_role="Organizer"] floating enable
+for_window [window_role="Preferences$"] floating enable
+for_window [window_role="bubble"] floating enable
+for_window [window_role="page-info"] floating enable
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [window_role="toolbox"] floating enable
+for_window [window_role="webconsole"] floating enable
+for_window [window_type="dialog"] floating enable
+for_window [window_type="menu"] floating enable
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
+
+# for mostly used application, move it on the current window with scratchpad
+
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+Shift+plus scratchpad show
 
 # focus the child container
 # bindsym $mod+d focus child
@@ -166,7 +186,9 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+# bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "rofi -show p -modi p:rofi-power-menu"
+bindsym $mod+Shift+x exec "sh ~/.config/i3/lock.sh"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -235,6 +257,7 @@ gaps outer 0
 gaps bottom 30
 gaps top 30
 
+# toggle gaps
 bindsym $mod+Shift+d gaps inner all set 0; gaps outer all set 0
 bindsym $mod+Shift+t gaps inner all set 15; gaps outer all set 5; gaps bottom all set 30; gaps top all set 30;
 # window colors border                background          text                  indicator             child border client.focused            $active-border-color  $bg-color           $text-color           $active-border-color  $active-border-color client.unfocused          $inactive-bg-color    $inactive-bg-color  $inactive-text-color  client.focused_inactive   $inactive-bg-color    $inactive-bg-color  $inactive-text-color 
@@ -251,10 +274,11 @@ exec_always setxkbmap -layout us -option ''
 bindsym $mod+Tab exec --no-startup-id (setxkbmap -query | grep -q "layout:\s\+us") && setxkbmap ir || setxkbmap us
 
 # transparent background settings
-exec_always --no-startup-id picom
+exec --no-startup-id picom
 
 # keyring for chrome
 exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=secrets
 exec --no-startup-id /usr/lib/kdeconnectd
 exec --no-startup-id kdeconnect-indicator
+exec_always --no-startup-id playerctld daemon
 # exec_always --no-startup-id "setxkbmap -option \"ctrl:nocaps\""

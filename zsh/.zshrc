@@ -14,6 +14,7 @@ export LANG=en_US.UTF-8
 
 # These lines needs to be before loading oh-my-zsh
 source "${HOME}/.zgen/zgen.zsh"
+source /usr/share/nvm/init-nvm.sh
 /usr/bin/xcape -e 'Caps_Lock=Escape' -t 50
 
 # check if there's no init script
@@ -286,6 +287,7 @@ alias cat="bat"
 alias ls="lsd"
 alias bat="cat"
 alias lsd="ls"
+alias rs-polybar="sh ~/.config/i3/polybar.sh"
 
 export PATH=$PATH:$HOME/.cabal/bin
 export PATH=$HOME/.bin:$PATH
@@ -297,6 +299,7 @@ export MANPATH="${MANPATH-$(manpath)}:$NPM_PACKAGES/share/man"
 NPM_PACKAGES="${HOME}/.npm-global"
 # this uses bat (called batcat on debian) to colorize man pages
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export MANROFFOPT="-c"
 export PATH="$PATH:$NPM_PACKAGES/bin"
 
 export PATH="$PATH:$HOME/.config/rofi/bin"

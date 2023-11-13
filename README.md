@@ -69,6 +69,8 @@ https://github.com/phw/peek
 Flameshot (screenshot)
 https://github.com/flameshot-org/flameshot
 
+blueman pasystray nm-applet
+
 ## Copy Paste on Neovim issue
 
 First check health in `neovim`
@@ -77,6 +79,14 @@ First check health in `neovim`
 ```
 If there is no clipboard tool, install `xclip` for example,
 https://wiki.archlinux.org/title/clipboard#Tools
+
+## Use the latest used player to be controlled by playerctl
+
+```
+playerctld daemon
+```
+
+https://github.com/altdesktop/playerctl#selecting-players-to-control
 
 ## Inspired by
 
