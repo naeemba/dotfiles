@@ -11,6 +11,7 @@ fpath=(~/.zsh/completion $fpath)
 
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
+# export DOCKER_HOST=unix:///home/sharp/.docker/desktop/docker.sock
 
 # These lines needs to be before loading oh-my-zsh
 source "${HOME}/.zgen/zgen.zsh"
@@ -24,7 +25,7 @@ HISTSIZE=999999999
 SAVEHIST=$HISTSIZE
 PROXY_PORT=10820
 PROXY_SERVER=socks5://localhost:$PROXY_PORT
-PROXY_NL_PORT=10822
+PROXY_NL_PORT=10820
 PROXY_NL_SERVER=socks5://localhost:$PROXY_PORT
 
 if ! zgen saved; then
@@ -69,6 +70,7 @@ if ! zgen saved; then
     zgen load djui/alias-tips
     zgen load Tarrasch/zsh-bd
     zgen load larkery/zsh-histdb
+    zgen load amaya382/zsh-fzf-widgets
     # zgen load romkatv/powerlevel10k powerlevel10k
     # zgen load lukechilds/zsh-nvm
 	zgen load spaceship-prompt/spaceship-prompt spaceship
@@ -122,12 +124,16 @@ ZSH_AUTOSUGGEST_STRATEGY=histdb_top_here
 zstyle ':filter-select' max-lines 6 # use $LINES - 4 for filter-select
 zstyle ':filter-select' case-insensitive yes # enable case-insensitive search
 
-bindkey '^R' zaw-history
+bindkey '^R' fzf-history
+bindkey '^F' fzf-cd
+bindkey '^G' fzf-git-checkout
+bindkey '^L' fzf-git-log
+bindkey '^S' fzf-git-status
 bindkey -M filterselect '^[j' down-line-or-history
 bindkey -M filterselect '^[k' up-line-or-history
 bindkey -M filterselect '^E' accept-search
 bindkey '^P' zaw-process
-bindkey '^F' zaw-open-file
+# bindkey '^F' zaw-open-file
 bindkey '^[^M' autosuggest-execute
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
@@ -274,7 +280,7 @@ alias ecu="expressvpn connect usny"
 alias nc="nordvpn connect"
 alias ncg="nordvpn connect germany"
 alias nd="nordvpn disconnect"
-alias td="QTWEBENGINE_DISABLE_SANDBOX=1 PROXYCHAINS_SOCKS=$PROXY_PORT proxychains ~/timedoctor2/timedoctor2"
+alias td="QTWEBENGINE_DISABLE_SANDBOX=1 proxychains -f /etc/proxychains.conf ~/timedoctor2/timedoctor2"
 alias td2="~/timedoctor2/timedoctor2"
 alias slack-gui="slack --proxy-server='$PROXY_SERVER' --gui"
 alias configure-appleid="echo 0 | sudo tee /sys/module/hid_apple/parameters/fnmode"

@@ -46,7 +46,7 @@
 #     $BACKGROUND_COMMAND $IMAGE_SAVE_DIR
 # fi
 
-feh --bg-fill --no-fehbg ~/Pictures/1.jpg ~/Pictures/3.jpg ~/Pictures/2.jpg 
+feh --bg-fill --no-fehbg ~/Pictures/1.jpg ~/Pictures/1.jpg ~/Pictures/1.jpg 
 
 sleep 1
 
