@@ -269,8 +269,7 @@ exec --no-startup-id ~/.config/i3/2monitors.sh
 exec_always --no-startup-id ~/.config/i3/unsplash.sh
 
 exec_always setxkbmap -layout us,ir -option 'grp:lctrl_lwin_rctrl_menu'
-
-exec_always setxkbmap -layout us -option ''
+# exec_always setxkbmap -layout us -option ''
 bindsym $mod+Tab exec --no-startup-id (setxkbmap -query | grep -q "layout:\s\+us") && setxkbmap ir || setxkbmap us
 
 # transparent background settings
@@ -284,4 +283,4 @@ exec_always --no-startup-id playerctld daemon
 # exec_always --no-startup-id "setxkbmap -option \"ctrl:nocaps\""
 
 exec --no-startup-id urxvt -e dunst
-exec_always --no-startup-id setxkbmap -option "ctrl:nocaps"
+exec_always --no-startup-id sleep 1 && setxkbmap -option "ctrl:nocaps"
