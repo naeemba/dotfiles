@@ -48,7 +48,7 @@
 
 feh --bg-fill --no-fehbg ~/Pictures/1.jpg ~/Pictures/1.jpg ~/Pictures/1.jpg 
 
-sleep 1
+# sleep 1
 
-setxkbmap -option
-setxkbmap -option "ctrl:nocaps"
+# setxkbmap -option
+# setxkbmap -option "ctrl:nocaps"

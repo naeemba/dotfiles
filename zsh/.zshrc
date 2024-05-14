@@ -23,9 +23,9 @@ source /usr/share/nvm/init-nvm.sh
 HISTFILE=~/.zsh_history
 HISTSIZE=999999999
 SAVEHIST=$HISTSIZE
-PROXY_PORT=10820
+PROXY_PORT=2080
 PROXY_SERVER=socks5://localhost:$PROXY_PORT
-PROXY_NL_PORT=10820
+PROXY_NL_PORT=2080
 PROXY_NL_SERVER=socks5://localhost:$PROXY_PORT
 
 if ! zgen saved; then
@@ -274,13 +274,15 @@ alias pnl="proxychains -f /etc/proxychains-nl.conf -q"
 alias pc="protonvpn c us-free#3"
 alias ex="expressvpn"
 alias ec="expressvpn connect smart"
-alias ecg="expressvpn connect defr1"
+alias ecg="expressvpn connect defr3" #Germany - Frankfurt - 3
 alias ed="expressvpn disconnect"
-alias ecu="expressvpn connect usny"
+alias ecu="expressvpn connect usny" # US - New York
+alias ecn="expressvpn connect nlam" # Netherlands - Amsterdam
+alias ecgh="expressvpn connect Ghana"
 alias nc="nordvpn connect"
 alias ncg="nordvpn connect germany"
 alias nd="nordvpn disconnect"
-alias td="QTWEBENGINE_DISABLE_SANDBOX=1 proxychains -f /etc/proxychains.conf ~/timedoctor2/timedoctor2"
+alias td="QTWEBENGINE_DISABLE_SANDBOX=1 proxychains -f /etc/proxychains_us.conf ~/timedoctor2/timedoctor2"
 alias td2="~/timedoctor2/timedoctor2"
 alias slack-gui="slack --proxy-server='$PROXY_SERVER' --gui"
 alias configure-appleid="echo 0 | sudo tee /sys/module/hid_apple/parameters/fnmode"

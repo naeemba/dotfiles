@@ -2,4 +2,4 @@ nvim/.netrwhist
 git/.work-gitconfig
 docker/config.json
 node_modules
-
+.env

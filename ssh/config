@@ -1,21 +1,40 @@
 # work account
 Host github.com-w
-	HostName github.com
-	IdentitiesOnly yes
-	IdentityFile ~/.ssh/work
+    HostName github.com
+    IdentitiesOnly yes
+    IdentityFile ~/.ssh/work
 
 Host gitlab.instacoins.com
     ProxyCommand nc -X 5 -x 127.0.0.1:10808 %h %p
-	IdentitiesOnly yes
-	IdentityFile ~/.ssh/pragma
+    IdentitiesOnly yes
+    IdentityFile ~/.ssh/pragma
 
 # personal account
 Host github.com-p
-	HostName github.com
-	IdentitiesOnly yes
-	IdentityFile ~/.ssh/personal
+    HostName github.com
+    IdentitiesOnly yes
+    IdentityFile ~/.ssh/personal
 
 Host git.arr.lan
-    ProxyCommand nc -X 5 -x 127.0.0.1:10820 %h %p
-	IdentitiesOnly yes
-	IdentityFile ~/.ssh/pragma
+    ProxyCommand nc -X 5 -x 127.0.0.1:2080 %h %p
+    IdentitiesOnly yes
+    IdentityFile ~/.ssh/pragma
+
+# Host 62.113.245.84
+#     ProxyCommand nc -X 5 -x 127.0.0.1:2080 %h %p
+#     IdentitiesOnly yes
+#     IdentityFile ~/.ssh/personal
+
+# Host 173.249.197.75
+#     ProxyCommand nc -X 5 -x 127.0.0.1:2080 %h %p
+#     IdentitiesOnly yes
+#     IdentityFile ~/.ssh/personal
+
+Host 164.90.212.173
+    IdentitiesOnly yes
+    IdentityFile ~/.ssh/personal
+
+Host git.pragmateam.dev
+    ProxyCommand nc -X 5 -x 127.0.0.1:2080 %h %p
+    IdentitiesOnly yes
+    IdentityFile ~/.ssh/pragma
