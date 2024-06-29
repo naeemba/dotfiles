@@ -35,6 +35,7 @@ set $active-border-color #e5ff00
 
 exec --no-startup-id flameshot
 exec --no-startup-id yakuake
+bindsym F12 exec --no-startup-id yakuake
 bindsym $mod+p exec flameshot gui
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -282,5 +283,6 @@ exec --no-startup-id kdeconnect-indicator
 exec_always --no-startup-id playerctld daemon
 # exec_always --no-startup-id "setxkbmap -option \"ctrl:nocaps\""
 
-exec --no-startup-id urxvt -e dunst
+# exec --no-startup-id urxvt -e dunst
+exec --no-startup-id dunst
 exec_always --no-startup-id sleep 1 && setxkbmap -option "ctrl:nocaps"
