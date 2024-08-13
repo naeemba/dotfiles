@@ -86,8 +86,8 @@ nkeymap("v", ">", ">gv", opts)
 nkeymap("v", "p", '"_dP', opts)
 
 -- Navigation
-keymap("n", "<C-J>", "<C-w><C-J>", opts)
-keymap("n", "<C-K>", "<C-w><C-K>", opts)
+-- keymap("n", "<C-J>", "<C-w><C-J>", opts)
+-- keymap("n", "<C-K>", "<C-w><C-K>", opts)
 keymap("n", "<C-L>", "<C-w><C-L>", opts)
 keymap("n", "<C-H>", "<C-w><C-H>", opts)
 
@@ -115,7 +115,7 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnos
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
-vim.keymap.set({ 'n' }, '<C-k>', function()       require('lsp_signature').toggle_float_win()
+vim.keymap.set({ 'n' }, '<S-k>', function()       require('lsp_signature').toggle_float_win()
     end, { silent = true, noremap = true, desc = 'toggle signature' })
 
 vim.keymap.set({ 'n' }, '<Leader>k', function()
@@ -123,7 +123,15 @@ vim.keymap.set({ 'n' }, '<Leader>k', function()
     end, { silent = true, noremap = true, desc = 'toggle signature' })
 
 -- After jump stay in middle of the screen
-keymap("n", "<C-d>", "<C-d>zz")
-keymap("n", "<C-u>", "<C-u>zz")
-keymap("n", "n", "nzzzv")
-keymap("n", "N", "Nzzzv")
+nkeymap("n", "<C-d>", "<C-d>zz", opts)
+nkeymap("n", "<C-u>", "<C-u>zz", opts)
+nkeymap("n", "n", "nzzzv", opts)
+nkeymap("n", "N", "Nzzzv", opts)
+
+nkeymap("n", '<C-j>', ":cnext<CR>", opts)
+nkeymap("n", '<C-k>', ":cprev<CR>", opts)
+
+nkeymap("v", '<leader>p', '"_dP', opts)
+nkeymap("v", '<leader>y', '"+y', opts)
+nkeymap("n", '<leader>y', '"+y', opts)
+nkeymap("n", '<leader>Y', 'gg"+yG', opts)
