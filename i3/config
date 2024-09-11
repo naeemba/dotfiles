@@ -239,16 +239,37 @@ mode "resize" {
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
-bindsym Control+Shift+k exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
-bindsym Control+Shift+j exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym Control+Shift+p exec --no-startup-id playerctl play-pause
 bindsym Control+shift+l exec playerctl next
 bindsym Control+shift+h exec playerctl previous
 
+
+
+# Command for the status line
+#   ie: i3blocks, i3status
+set $statuscmd i3status
+
+# Signal used to update the status line
+#   i3blocks uses SIGRTMIN+10 by default
+#   i3status uses SIGUSR1 by default
+set $statussig SIGUSR1
+
+# Amount to increase/decrease volume as a percentage
+set $volumestep 5
+
+# pulseaudio-utils settings
+#
+# Symbolic name for sink (numeric index not supported)
+#   Recommended: comment out this setting and omit the -s option to use default sink
+#   List sink names: pacmd list-sinks | awk -F "[<>]" '/^\s+name: <.*>/{print $2}'
+
+# Using pulseaudio-utils (append "-s $sinkname" without quotes to override default sink)
+bindsym XF86AudioRaiseVolume exec --no-startup-id i3-volume -n -t $statuscmd -u $statussig up $volumestep
+bindsym XF86AudioLowerVolume exec --no-startup-id i3-volume -n -t $statuscmd -u $statussig down $volumestep
+bindsym XF86AudioMute        exec --no-startup-id i3-volume -n -t $statuscmd -u $statussig mute
+bindsym Control+Shift+k exec --no-startup-id i3-volume -n -t $statuscmd -u $statussig up $volumestep
+bindsym Control+Shift+j exec --no-startup-id i3-volume -n -t $statuscmd -u $statussig down $volumestep
 # resize mode
 bindsym $mode+r mode "resize"
 for_window [class="^.*"] border pixel 1

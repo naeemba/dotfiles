@@ -59,7 +59,7 @@ if ! zgen saved; then
     zgen oh-my-zsh plugins/history-substring-search
     zgen oh-my-zsh plugins/pip
     zgen oh-my-zsh plugins/python
-	zgen oh-my-zsh plugins/ssh-agent
+    zgen oh-my-zsh plugins/ssh-agent
     zgen load zsh-users/zsh-syntax-highlighting
     zgen load zsh-users/zaw
     zgen load zsh-users/zsh-completions src
@@ -216,8 +216,8 @@ export EDITOR=nvr
 export ANDROID_EMULATOR_USE_SYSTEM_LIBS=1
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=242"
 export PYENV_ROOT="$HOME/.pyenv"
-export LEDGER_FILE="$HOME/Documents/accounting/ledger.ledger"
-export LEDGER_PRICE_DB="$HOME/Documents/accounting/price-db.ledger"
+export LEDGER_FILE="$HOME/Documents/accounting/journals/ledger.ledger"
+export LEDGER_PRICE_DB="$HOME/Documents/accounting/journals/price-db.ledger"
 export TOMBS="$HOME/tombs"
 export PASSWORD_STORE_TOMB_FILE="$TOMBS/pass.tomb" # for pass-tomb
 export PASSWORD_STORE_TOMB_KEY="$TOMBS/pass.tomb.key" # for pass-tomb
