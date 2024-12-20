@@ -212,12 +212,45 @@ require('lazy').setup({
   },
 
   {
-    -- Theme inspired by Atom
-    'navarasu/onedark.nvim',
+    "catppuccin/nvim",
+    name = "catppuccin",
     priority = 1000,
-    config = function()
-      vim.cmd.colorscheme 'onedark'
-    end,
+    opts = {
+      transparent_background = true,
+      integrations = {
+        cmp = true,
+        notify = true,
+        which_key = true,
+        gitsigns = true,
+        telescope = true,
+        harpoon = true,
+        mason = true,
+        neotest = true,
+        bufferline = true,
+        native_lsp = {
+          enabled = true,
+          virtual_text = {
+            errors = { "italic" },
+            hints = { "italic" },
+            warnings = { "italic" },
+            information = { "italic" },
+          },
+          underlines = {
+            errors = { "underline" },
+            hints = { "underline" },
+            warnings = { "underline" },
+            information = { "underline" },
+          },
+          inlay_hints = {
+            background = true,
+          },
+        },
+      }
+    },
+    config = function(_, opts)
+      require('catppuccin').setup(opts)
+      vim.cmd.colorscheme 'catppuccin-mocha'
+    end
   },
 
   {
@@ -308,7 +341,7 @@ require('lazy').setup({
   --
   --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
   -- { import = 'custom.plugins' },
-  { 'akinsho/bufferline.nvim', version = "*", dependencies = 'nvim-tree/nvim-web-devicons' },
+  { 'akinsho/bufferline.nvim', version = "*", dependencies = 'nvim-tree/nvim-web-devicons', after = "catppuccin", },
 
   { 'windwp/nvim-autopairs' },
   { 'windwp/nvim-ts-autotag' },
@@ -583,7 +616,7 @@ local servers = {
   -- gopls = {},
   -- pyright = {},
   -- rust_analyzer = {},
-  tsserver = {},
+  -- tsserver = {},
   tailwindcss = {},
   html = { filetypes = { 'html', 'twig', 'hbs'} },
 

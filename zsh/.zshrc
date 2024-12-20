@@ -72,7 +72,7 @@ if ! zgen saved; then
     zgen load larkery/zsh-histdb
     zgen load amaya382/zsh-fzf-widgets
     # zgen load romkatv/powerlevel10k powerlevel10k
-    # zgen load lukechilds/zsh-nvm
+    zgen load lukechilds/zsh-nvm
 	zgen load spaceship-prompt/spaceship-prompt spaceship
 
 
@@ -93,7 +93,7 @@ SPACESHIP_PROMPT_ORDER=(
   git           # Git section (git_branch + git_status)
   exec_time     # Execution time
   battery       # Battery level and status
-  vi_mode       # Vi-mode indicator
+  # vi_mode       # Vi-mode indicator
   exit_code     # Exit code section
   char          # Prompt character
 )
@@ -269,6 +269,8 @@ alias kd="kill -9 $(ps aux --sort -rss  | awk '/dota/ {print $2}' | head -n1)"
 alias sm="/home/sharp/Software/macOS-Simple-KVM/basic.sh"
 alias pass-gen="node $HOME/pass-gen.js | tee /dev/tty | xclip -selection clipboard"
 alias chrome-no-security="google-chrome-stable --disable-web-security --user-data-dir=\"~/.chrome-data-dir\""
+alias search_history='BUFFER=$(history | awk '\''{$1=""; print substr($0,2)}'\'' | sort -u | fzf); READLINE_LINE="$BUFFER"; READLINE_POINT=${#BUFFER}'
+
 
 # vpn aliases
 alias p="PROXYCHAINS_SOCKS=$PROXY_PORT proxychains -q"

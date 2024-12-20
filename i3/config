@@ -47,6 +47,8 @@ bindsym $mod+p exec flameshot gui
 # A more modern dmenu replacement is rofi:
 bindcode $mod+40 exec rofi -show combi -combi-modi window#drun -config "~/.config/rofi/config.rasi"
 bindcode $mod+24 exec rofi -show calc -config "~/.config/rofi/config.rasi"
+bindcode $mod+54 exec rofi -modi "clipboard:greenclip print" -show clipboard -run-command "{cmd}" -config "~/.config/rofi/config.rasi"
+
 # There also is i3-dmenu-desktop which only displays applications shipping a
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
@@ -76,10 +78,10 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+c split h
+# bindsym $mod+c split h
 
 # split in vertical orientation
-bindsym $mod+v split v
+# bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -288,6 +290,8 @@ client.urgent             $urgent-bg-color      $urgent-bg-color    $text-color
 exec --no-startup-id ~/.config/i3/polybar.sh
 
 exec --no-startup-id ~/.config/i3/2monitors.sh
+bindsym $mod+Shift+Control+3 exec --no-startup-id ~/.config/i3/3monitors.sh
+bindsym $mod+Shift+Control+1 exec --no-startup-id ~/.config/i3/1monitors.sh
 exec_always --no-startup-id ~/.config/i3/unsplash.sh
 
 exec_always setxkbmap -layout us,ir -option 'grp:lctrl_lwin_rctrl_menu'
@@ -306,4 +310,5 @@ exec_always --no-startup-id playerctld daemon
 
 # exec --no-startup-id urxvt -e dunst
 exec --no-startup-id dunst
+exec --no-startup-id greenclip daemon
 exec_always --no-startup-id sleep 1 && setxkbmap -option "ctrl:nocaps"

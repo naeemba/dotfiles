@@ -31,12 +31,20 @@ window {
 }
 
 mainbox {
-	children: [inputbar, listview];
+	children: [inputbar, message, listview];
 }
 
 
 // ELEMENT
 // -----------------------------------
+
+message {
+	padding: 4 12;
+}
+
+textbox {
+	text-color: White;
+}
 
 element {
 	padding: 4 12;
