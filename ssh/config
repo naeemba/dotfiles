@@ -16,7 +16,7 @@ Host github.com-p
     IdentityFile ~/.ssh/personal
 
 Host git.arr.lan
-    ProxyCommand nc -X 5 -x 127.0.0.1:2080 %h %p
+    # ProxyCommand nc -X 5 -x 127.0.0.1:2080 %h %p
     IdentitiesOnly yes
     IdentityFile ~/.ssh/pragma
 
@@ -25,12 +25,37 @@ Host git.arr.lan
 #     IdentitiesOnly yes
 #     IdentityFile ~/.ssh/personal
 
-# Host 173.249.197.75
-#     ProxyCommand nc -X 5 -x 127.0.0.1:2080 %h %p
-#     IdentitiesOnly yes
-#     IdentityFile ~/.ssh/personal
+Host us
+    HostName 173.249.200.55
+    Port 7318
+    IdentitiesOnly yes
+    IdentityFile ~/.ssh/personal
 
-Host 164.90.212.173
+Host uk
+    HostName 96.9.214.232
+    Port 4879
+    IdentitiesOnly yes
+    IdentityFile ~/.ssh/personal
+
+Host do
+    HostName 164.90.212.173
+    IdentitiesOnly yes
+    IdentityFile ~/.ssh/personal
+
+Host raxel
+    HostName 173.249.207.117
+    Port 7891
+    IdentitiesOnly yes
+    IdentityFile ~/.ssh/personal
+
+Host saya
+    HostName 69.161.221.248
+    Port 8753
+    IdentitiesOnly yes
+    IdentityFile ~/.ssh/personal
+
+Host headscale
+    HostName 167.99.141.129
     IdentitiesOnly yes
     IdentityFile ~/.ssh/personal
 

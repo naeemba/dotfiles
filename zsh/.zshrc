@@ -300,6 +300,7 @@ alias ls="lsd"
 alias bat="cat"
 alias lsd="ls"
 alias rs-polybar="sh ~/.config/i3/polybar.sh"
+alias tailscale-up="sudo tailscale down && sudo tailscale up --reset --accept-routes --login-server=https://headscale.arringo.co --accept-dns --operator=$USER --exit-node=100.119.112.168 --exit-node-allow-lan-access"
 
 export PATH=$PATH:$HOME/.cabal/bin
 export PATH=$HOME/.bin:$PATH
