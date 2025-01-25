@@ -16,7 +16,7 @@ export LANG=en_US.UTF-8
 # These lines needs to be before loading oh-my-zsh
 source "${HOME}/.zgen/zgen.zsh"
 source /usr/share/nvm/init-nvm.sh
-/usr/bin/xcape -e 'Caps_Lock=Escape' -t 50
+# /usr/bin/xcape -e 'Caps_Lock=Escape' -t 50
 
 # check if there's no init script
 
@@ -218,95 +218,95 @@ export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=242"
 export PYENV_ROOT="$HOME/.pyenv"
 export LEDGER_FILE="$HOME/Documents/accounting/journals/ledger.ledger"
 export LEDGER_PRICE_DB="$HOME/Documents/accounting/journals/price-db.ledger"
-export TOMBS="$HOME/tombs"
-export PASSWORD_STORE_TOMB_FILE="$TOMBS/pass.tomb" # for pass-tomb
-export PASSWORD_STORE_TOMB_KEY="$TOMBS/pass.tomb.key" # for pass-tomb
-export BORG_CONFIG_DIR="/home/sharp/borg"
-export BORG_CACHE_DIR="/home/sharp/borg/cache"
-export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --preview '[[ \$(file --mime {}) =~ binary ]] && echo {} is a binary file || (highlight -O ansi -l {} || cat {}) 2> /dev/null | head -500' "
+# export TOMBS="$HOME/tombs"
+# export PASSWORD_STORE_TOMB_FILE="$TOMBS/pass.tomb" # for pass-tomb
+# export PASSWORD_STORE_TOMB_KEY="$TOMBS/pass.tomb.key" # for pass-tomb
+# export BORG_CONFIG_DIR="/home/sharp/borg"
+# export BORG_CACHE_DIR="/home/sharp/borg/cache"
+# export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --preview '[[ \$(file --mime {}) =~ binary ]] && echo {} is a binary file || (highlight -O ansi -l {} || cat {}) 2> /dev/null | head -500' "
 alias e=$EDITOR
-alias vim=nvim
+# alias vim=nvim
 alias n=nvim
-alias down="aria2c --conf-path=${HOME}/.aria2/down.conf"
-alias bdown="aria2c --conf-path=${HOME}/.aria2/bersam.conf"
-alias tdown="aria2c --all-proxy=http://127.0.0.1:7777 --conf-path=${HOME}/.aria2/down.conf"
-alias rdown="aria2c --enable-rpc --rpc-listen-port=6800 --rpc-listen-all=true --conf-path=${HOME}/.aria2/down.conf"
-alias o='xdg-open'
-alias xclip='xclip -selection clipboard'
+# alias down="aria2c --conf-path=${HOME}/.aria2/down.conf"
+# alias bdown="aria2c --conf-path=${HOME}/.aria2/bersam.conf"
+# alias tdown="aria2c --all-proxy=http://127.0.0.1:7777 --conf-path=${HOME}/.aria2/down.conf"
+# alias rdown="aria2c --enable-rpc --rpc-listen-port=6800 --rpc-listen-all=true --conf-path=${HOME}/.aria2/down.conf"
+# alias o='xdg-open'
+# alias xclip='xclip -selection clipboard'
 alias j='fasd_cd -d'
 alias jj='fasd_cd -d -i'
-alias tags="grep -orh '@.*' ~/Notes/journal | sort | uniq -c"
+# alias tags="grep -orh '@.*' ~/Notes/journal | sort | uniq -c"
 alias ledger="ledger --pedantic --explicit --strict"
-alias hledger="hledger"
+# alias hledger="hledger"
 alias ledger-bal="ledger balance ^assets -X Kirt"
 alias whc="tig HEAD..origin/master"
-alias fs="flow status"
-alias es="eslint"
-alias tr="systemctl restart tor"
+# alias fs="flow status"
+# alias es="eslint"
+# alias tr="systemctl restart tor"
 alias lg="journalctl -exfu"
-alias dl="aria2c -x16"
-alias dlm="aria2c --dir=./ --input-file=urls.txt --max-concurrent-downloads=1 --connect-timeout=60 --max-connection-per-server=16 --split=16 --min-split-size=1M --human-readable=true --download-result=full --file-allocation=none"
+# alias dl="aria2c -x16"
+# alias dlm="aria2c --dir=./ --input-file=urls.txt --max-concurrent-downloads=1 --connect-timeout=60 --max-connection-per-server=16 --split=16 --min-split-size=1M --human-readable=true --download-result=full --file-allocation=none"
 alias gblu="git remote update origin --prune"
-alias nr="npm run"
-alias ns="npm start"
-alias ni="npm install"
-alias nl="npm run lint"
-alias nt="npm run test"
-alias nb="npm run build"
-alias nd="npm run dev"
-alias nta="npm run test:all"
-alias nrd="npm run dev"
-alias nmr="sudo systemctl restart NetworkManager"
+# alias nr="npm run"
+# alias ns="npm start"
+# alias ni="npm install"
+# alias nl="npm run lint"
+# alias nt="npm run test"
+# alias nb="npm run build"
+# alias nd="npm run dev"
+# alias nta="npm run test:all"
+# alias nrd="npm run dev"
+# alias nmr="sudo systemctl restart NetworkManager"
 alias gf="git fetch --all --prune"
 alias gfp="git branch --merged | grep -v "\*" | xargs -n 1 git branch -d"
 alias gmd="gm origin/develop"
 alias gpsu="gp --set-upstream origin"
 alias grob="git branch --merged master | grep -v '^[ *]*master$' | xargs git branch -d"
-alias pr="pulseaudio -k ; pulseaudio -D"
-alias pi="ssh pi@192.168.100.199"
-alias kv="kill -9 $(ps aux --sort -rss  | awk '/vlc/ {print $2}' | head -n1)"
-alias kd="kill -9 $(ps aux --sort -rss  | awk '/dota/ {print $2}' | head -n1)"
-alias sm="/home/sharp/Software/macOS-Simple-KVM/basic.sh"
+# alias pr="pulseaudio -k ; pulseaudio -D"
+# alias pi="ssh pi@192.168.100.199"
+# alias kv="kill -9 $(ps aux --sort -rss  | awk '/vlc/ {print $2}' | head -n1)"
+# alias kd="kill -9 $(ps aux --sort -rss  | awk '/dota/ {print $2}' | head -n1)"
+# alias sm="/home/sharp/Software/macOS-Simple-KVM/basic.sh"
 alias pass-gen="node $HOME/pass-gen.js | tee /dev/tty | xclip -selection clipboard"
 alias chrome-no-security="google-chrome-stable --disable-web-security --user-data-dir=\"~/.chrome-data-dir\""
 alias search_history='BUFFER=$(history | awk '\''{$1=""; print substr($0,2)}'\'' | sort -u | fzf); READLINE_LINE="$BUFFER"; READLINE_POINT=${#BUFFER}'
 
 
 # vpn aliases
-alias p="PROXYCHAINS_SOCKS=$PROXY_PORT proxychains -q"
-alias pnl="proxychains -f /etc/proxychains-nl.conf -q"
-alias pc="protonvpn c us-free#3"
-alias ex="expressvpn"
-alias ec="expressvpn connect"
-alias ecg="expressvpn connect defr3" #Germany - Frankfurt - 3
-alias ed="expressvpn disconnect"
-alias ecu="expressvpn connect usny" # US - New York
-alias ecn="expressvpn connect nlam" # Netherlands - Amsterdam
-alias ecgh="expressvpn connect Ghana"
-alias nc="nordvpn connect"
-alias ncg="nordvpn connect germany"
-alias nd="nordvpn disconnect"
+# alias p="PROXYCHAINS_SOCKS=$PROXY_PORT proxychains -q"
+# alias pnl="proxychains -f /etc/proxychains-nl.conf -q"
+# alias pc="protonvpn c us-free#3"
+# alias ex="expressvpn"
+# alias ec="expressvpn connect"
+# alias ecg="expressvpn connect defr3" #Germany - Frankfurt - 3
+# alias ed="expressvpn disconnect"
+# alias ecu="expressvpn connect usny" # US - New York
+# alias ecn="expressvpn connect nlam" # Netherlands - Amsterdam
+# alias ecgh="expressvpn connect Ghana"
+# alias nc="nordvpn connect"
+# alias ncg="nordvpn connect germany"
+# alias nd="nordvpn disconnect"
 alias td="QTWEBENGINE_DISABLE_SANDBOX=1 proxychains -f /etc/proxychains_us.conf ~/timedoctor2/timedoctor2"
-alias td2="~/timedoctor2/timedoctor2"
-alias slack-gui="slack --proxy-server='$PROXY_SERVER' --gui"
-alias configure-appleid="echo 0 | sudo tee /sys/module/hid_apple/parameters/fnmode"
-alias battery-status="watch -n0 cat /sys/class/power_supply/BAT1/capacity"
-alias proxy="http_proxy=$PROXY_SERVER https_proxy=$PROXY_SERVER"
-alias proxynl="http_proxy=$PROXY_NL_SERVER https_proxy=$PROXY_NL_SERVER"
-alias y="proxy yarn"
-alias ynl="proxynl yarn"
-alias cat="bat"
-alias ls="lsd"
-alias bat="cat"
-alias lsd="ls"
-alias rs-polybar="sh ~/.config/i3/polybar.sh"
+# alias td2="~/timedoctor2/timedoctor2"
+# alias slack-gui="slack --proxy-server='$PROXY_SERVER' --gui"
+# alias configure-appleid="echo 0 | sudo tee /sys/module/hid_apple/parameters/fnmode"
+# alias battery-status="watch -n0 cat /sys/class/power_supply/BAT1/capacity"
+# alias proxy="http_proxy=$PROXY_SERVER https_proxy=$PROXY_SERVER"
+# alias proxynl="http_proxy=$PROXY_NL_SERVER https_proxy=$PROXY_NL_SERVER"
+# alias y="proxy yarn"
+# alias ynl="proxynl yarn"
+# alias cat="bat"
+# alias ls="lsd"
+# alias bat="cat"
+# alias lsd="ls"
+# alias rs-polybar="sh ~/.config/i3/polybar.sh"
 
-export PATH=$PATH:$HOME/.cabal/bin
+# export PATH=$PATH:$HOME/.cabal/bin
 export PATH=$HOME/.bin:$PATH
-export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools
-export PATH=$PATH:$JAVA_HOME/bin
-export PATH=$PYENV_ROOT/bin:$PATH
+# export PATH=$PATH:$GOPATH/bin
+# export PATH=$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools
+# export PATH=$PATH:$JAVA_HOME/bin
+# export PATH=$PYENV_ROOT/bin:$PATH
 export MANPATH="${MANPATH-$(manpath)}:$NPM_PACKAGES/share/man"
 NPM_PACKAGES="${HOME}/.npm-global"
 # this uses bat (called batcat on debian) to colorize man pages
@@ -314,23 +314,25 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export MANROFFOPT="-c"
 export PATH="$PATH:$NPM_PACKAGES/bin"
 
-export PATH="$PATH:$HOME/.config/rofi/bin"
-export PATH="${PATH}:${HOME}/.krew/bin"
-export PATH="$PATH:$HOME/.local/share/pnpm"
-export PNPM_HOME="$HOME/.local/share/pnpm"
+# export PATH="$PATH:$HOME/.config/rofi/bin"
+# export PATH="${PATH}:${HOME}/.krew/bin"
+# export PATH="$PATH:$HOME/.local/share/pnpm"
+# export PNPM_HOME="$HOME/.local/share/pnpm"
 
 
-eval "$(direnv hook zsh)"
+# eval "$(direnv hook zsh)"
 
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+# export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/sharp/Software/google-cloud-sdk/path.zsh.inc' ]; then . '/home/sharp/Software/google-cloud-sdk/path.zsh.inc'; fi
+# if [ -f '/home/sharp/Software/google-cloud-sdk/path.zsh.inc' ]; then . '/home/sharp/Software/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
 # if [ -f '/home/sharp/Software/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/sharp/Software/google-cloud-sdk/completion.zsh.inc'; fi
+eval "$(/opt/homebrew/bin/brew shellenv)"
+$(/opt/homebrew/bin/brew shellenv)
