@@ -15,8 +15,8 @@ export LANG=en_US.UTF-8
 
 # These lines needs to be before loading oh-my-zsh
 source "${HOME}/.zgen/zgen.zsh"
-source /usr/share/nvm/init-nvm.sh
-/usr/bin/xcape -e 'Caps_Lock=Escape' -t 50
+# source /usr/share/nvm/init-nvm.sh
+# /usr/bin/xcape -e 'Caps_Lock=Escape' -t 50
 
 # check if there's no init script
 
@@ -49,7 +49,6 @@ if ! zgen saved; then
     zgen oh-my-zsh plugins/gradle
     zgen oh-my-zsh plugins/sudo
     zgen oh-my-zsh plugins/docker
-    zgen oh-my-zsh plugins/fasd
     zgen oh-my-zsh plugins/nmap
     zgen oh-my-zsh plugins/last-working-dir
     zgen oh-my-zsh plugins/themes
@@ -65,7 +64,8 @@ if ! zgen saved; then
     zgen load zsh-users/zsh-completions src
     zgen load zsh-users/zsh-autosuggestions
     zgen load changyuheng/zsh-interactive-cd
-    zgen load marzocchi/zsh-notify
+    zgen load agkozak/zsh-z
+    # zgen load marzocchi/zsh-notify
     # zgen load joel-porquet/zsh-dircolors-solarized
     zgen load djui/alias-tips
     zgen load Tarrasch/zsh-bd
@@ -216,8 +216,8 @@ export EDITOR=nvr
 export ANDROID_EMULATOR_USE_SYSTEM_LIBS=1
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=242"
 export PYENV_ROOT="$HOME/.pyenv"
-export LEDGER_FILE="$HOME/Documents/accounting/journals/ledger.ledger"
-export LEDGER_PRICE_DB="$HOME/Documents/accounting/journals/price-db.ledger"
+export LEDGER_FILE="$HOME/Workspace/Personal/accounting/journals/ledger.ledger"
+export LEDGER_PRICE_DB="$HOME/Workspace/Personal/accounting/journals/price-db.ledger"
 export TOMBS="$HOME/tombs"
 export PASSWORD_STORE_TOMB_FILE="$TOMBS/pass.tomb" # for pass-tomb
 export PASSWORD_STORE_TOMB_KEY="$TOMBS/pass.tomb.key" # for pass-tomb
@@ -233,8 +233,8 @@ alias tdown="aria2c --all-proxy=http://127.0.0.1:7777 --conf-path=${HOME}/.aria2
 alias rdown="aria2c --enable-rpc --rpc-listen-port=6800 --rpc-listen-all=true --conf-path=${HOME}/.aria2/down.conf"
 alias o='xdg-open'
 alias xclip='xclip -selection clipboard'
-alias j='fasd_cd -d'
-alias jj='fasd_cd -d -i'
+# alias j='fasd_cd -d'
+# alias jj='fasd_cd -d -i'
 alias tags="grep -orh '@.*' ~/Notes/journal | sort | uniq -c"
 alias ledger="ledger --pedantic --explicit --strict"
 alias hledger="hledger"
@@ -264,8 +264,8 @@ alias gpsu="gp --set-upstream origin"
 alias grob="git branch --merged master | grep -v '^[ *]*master$' | xargs git branch -d"
 alias pr="pulseaudio -k ; pulseaudio -D"
 alias pi="ssh pi@192.168.100.199"
-alias kv="kill -9 $(ps aux --sort -rss  | awk '/vlc/ {print $2}' | head -n1)"
-alias kd="kill -9 $(ps aux --sort -rss  | awk '/dota/ {print $2}' | head -n1)"
+# alias kv="kill -9 $(ps aux --sort -rss  | awk '/vlc/ {print $2}' | head -n1)"
+# alias kd="kill -9 $(ps aux --sort -rss  | awk '/dota/ {print $2}' | head -n1)"
 alias sm="/home/sharp/Software/macOS-Simple-KVM/basic.sh"
 alias pass-gen="node $HOME/pass-gen.js | tee /dev/tty | xclip -selection clipboard"
 alias chrome-no-security="google-chrome-stable --disable-web-security --user-data-dir=\"~/.chrome-data-dir\""
@@ -315,23 +315,25 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export MANROFFOPT="-c"
 export PATH="$PATH:$NPM_PACKAGES/bin"
 
-export PATH="$PATH:$HOME/.config/rofi/bin"
+# export PATH="$PATH:$HOME/.config/rofi/bin"
 export PATH="${PATH}:${HOME}/.krew/bin"
 export PATH="$PATH:$HOME/.local/share/pnpm"
 export PNPM_HOME="$HOME/.local/share/pnpm"
 
 
-eval "$(direnv hook zsh)"
+# eval "$(direnv hook zsh)"
 
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+# export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/sharp/Software/google-cloud-sdk/path.zsh.inc' ]; then . '/home/sharp/Software/google-cloud-sdk/path.zsh.inc'; fi
+# if [ -f '/home/sharp/Software/google-cloud-sdk/path.zsh.inc' ]; then . '/home/sharp/Software/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
 # if [ -f '/home/sharp/Software/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/sharp/Software/google-cloud-sdk/completion.zsh.inc'; fi
+eval "$(/opt/homebrew/bin/brew shellenv)"
+$(/opt/homebrew/bin/brew shellenv)

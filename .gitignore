@@ -3,3 +3,4 @@ git/.work-gitconfig
 docker/config.json
 node_modules
 .env
+.DS_Store

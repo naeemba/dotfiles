@@ -18,7 +18,7 @@ Host github.com-p
 Host git.arr.lan
     # ProxyCommand nc -X 5 -x 127.0.0.1:2080 %h %p
     IdentitiesOnly yes
-    IdentityFile ~/.ssh/pragma
+    IdentityFile ~/.ssh/work
 
 # Host 62.113.245.84
 #     ProxyCommand nc -X 5 -x 127.0.0.1:2080 %h %p
